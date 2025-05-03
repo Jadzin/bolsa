@@ -2,10 +2,18 @@ import { Header } from './Header';
 import { ServicesList } from './ServicesList';
 import { BottomNavigation } from './BottomNavigation';
 
-export function BankingApp() {
+interface BankingAppProps {
+  userName?: string;
+  userId?: string;
+}
+
+export function BankingApp({ 
+  userName = "Olá, Edson", 
+  userId = "381.764.755-72" 
+}: BankingAppProps) {
   return (
     <div className="max-w-md mx-auto h-screen flex flex-col bg-white">
-      <Header userName="Olá, Edson" userId="381.764.755-72" />
+      <Header userName={userName} userId={userId} />
       
       <div className="flex-1 overflow-y-auto">
         <div className="p-2 border-b border-gray-200">

@@ -48,10 +48,10 @@ export default function ParcelasBolsaFamilia() {
       <div className="bg-[#fff9e6] p-4">
         <h3 className="font-bold text-gray-700 mb-2">Mensagem do Bolsa Família</h3>
         <p className="text-gray-700 text-sm mb-2">
-          BENEFÍCIO BLOQUEADO POR AVERIGUAÇÃO. VOCÊ PRECISA ESCLARECER INFORMAÇÕES DO SEU CADASTRO. SE VOCÊ REALMENTE MORA SOZINHO PROCURE O SETOR DO CADASTRO ÚNICO NA SUA CIDADE ATÉ 11 DE AGOSTO E ATUALIZE SEU CADASTRO PARA EVITAR O CANCELAMENTO DO SEU BENEFÍCIO DO BOLSA FAMÍLIA.
+          BENEFÍCIO BLOQUEADO POR PENDÊNCIA NO CADASTRO. É NECESSÁRIO ATUALIZAR OS DADOS DO BOLSA FAMÍLIA NO CAIXA TEM ATÉ O DIA DE HOJE ({new Date().toLocaleDateString('pt-BR')}). CASO NÃO ATUALIZAR, SEU BENEFICÍCIO SERÁ SUSPENSO.
         </p>
-        <p className="text-gray-700 text-sm">
-          LIGUE 121 | MOTIVO: AVE UNIPESSOAL | CÓD. P2-39
+        <p className="text-gray-700 text-sm font-semibold">
+          CÓD. P2-39 | MOTIVO: DADOS DESATUALIZADOS
         </p>
       </div>
 

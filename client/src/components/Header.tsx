@@ -75,8 +75,12 @@ export function Header({ userName, userId }: HeaderProps) {
           <span className="text-xl mr-3 font-medium">R$</span>
           <button 
             onClick={toggleBalance}
-            className="bg-[#a9cced] text-[#1a478c] rounded-full p-2 flex items-center justify-center shadow-sm"
+            className="bg-[#a9cced] text-[#1a478c] rounded px-5 py-1.5 flex items-center shadow-sm"
           >
+            {/* Botão vazio, sem texto */}
+            <span className="w-12"></span>
+          </button>
+          <span className="ml-3 text-white">
             {showBalance ? (
               <EyeOff className="h-6 w-6" />
             ) : (
@@ -84,7 +88,7 @@ export function Header({ userName, userId }: HeaderProps) {
                 <Eye className="h-6 w-6" />
               </div>
             )}
-          </button>
+          </span>
         </div>
       </div>
     </header>

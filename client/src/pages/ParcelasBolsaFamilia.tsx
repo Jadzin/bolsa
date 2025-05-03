@@ -67,23 +67,19 @@ export default function ParcelasBolsaFamilia() {
 
       {/* Lista de parcelas */}
       <div className="bg-white">
-        {/* Nova implementação com linha atravessando os ícones */}
-        <div className="relative px-4">
-          <div className="flex flex-col pl-2">
-            {/* Linha vertical que atravessa completamente os ícones de ponta a ponta */}
-            <div className="absolute left-[16px] top-0 h-full w-[1.5px] bg-gray-300"></div>
+        {/* Implementação mais simples e direta */}
+        <div className="px-4 pt-4 pb-8">
+          <div className="flex flex-col items-start relative">
+            {/* Linha vertical passando pelos ícones */}
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-300"></div>
             
             {/* PROG BOLSA FAMILIA */}
-            <div className="flex justify-between py-4">
-              <div className="flex">
-                {/* Ícone com a linha passando através dele */}
-                <div className="w-6 relative flex justify-center" style={{ zIndex: 5 }}>
-                  <div className="absolute z-5 top-0 left-[-5px] bg-orange-300 rounded-full w-[34px] h-[34px] flex items-center justify-center">
-                    {/* A linha passa por trás do ícone, mas o conteúdo fica visível */}
-                    <AlertTriangle size={16} className="text-white z-20" />
-                  </div>
+            <div className="w-full flex justify-between mb-12 relative">
+              <div className="flex items-start">
+                <div className="bg-orange-300 rounded-full h-8 w-8 flex items-center justify-center -ml-2 relative z-10">
+                  <AlertTriangle size={14} className="text-white" />
                 </div>
-                <div className="ml-6">
+                <div className="ml-3">
                   <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
                   <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (07/2023)</div>
                 </div>
@@ -94,16 +90,12 @@ export default function ParcelasBolsaFamilia() {
             </div>
 
             {/* ADICIONAL */}
-            <div className="flex justify-between py-4">
-              <div className="flex">
-                {/* Ícone com a linha passando através dele */}
-                <div className="w-6 relative flex justify-center" style={{ zIndex: 5 }}>
-                  <div className="absolute z-5 top-0 left-[-5px] bg-green-400 rounded-full w-[34px] h-[34px] flex items-center justify-center">
-                    {/* A linha passa por trás do ícone, mas o conteúdo fica visível */}
-                    <span className="text-white font-bold z-20">$</span>
-                  </div>
+            <div className="w-full flex justify-between mb-4 relative">
+              <div className="flex items-start">
+                <div className="bg-green-400 rounded-full h-8 w-8 flex items-center justify-center -ml-2 relative z-10">
+                  <span className="text-white font-bold">$</span>
                 </div>
-                <div className="ml-6">
+                <div className="ml-3">
                   <div className="font-medium text-gray-800">ADICIONAL</div>
                   <div className="text-green-600 text-sm font-medium">PAGO - Referência (05/2023)</div>
                 </div>

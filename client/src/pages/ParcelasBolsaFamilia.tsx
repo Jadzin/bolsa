@@ -1,5 +1,6 @@
 import { useLocation } from 'wouter';
 import { ArrowLeft, AlertTriangle } from 'lucide-react';
+import bolsaFamiliaLogo from '../assets/bolsa-familia-logo.webp';
 
 export default function ParcelasBolsaFamilia() {
   const [, navigate] = useLocation();
@@ -21,7 +22,7 @@ export default function ParcelasBolsaFamilia() {
         </button>
         <div className="flex items-center">
           <div className="bg-white rounded-full p-1 mr-2">
-            <img src="https://www.gov.br/pt-br/noticias/assistencia-social/2023/09/caixa-tem-tera-novas-funcionalidades-para-beneficiarios-do-bolsa-familia/copy4_of_bolsa_familia_logo_v1_0.png/@@images/efcae3b7-f70d-4f9d-b9a3-6eee386284e5.png" 
+            <img src={bolsaFamiliaLogo} 
                  alt="Bolsa Família" 
                  className="h-6 w-6 object-contain" />
           </div>

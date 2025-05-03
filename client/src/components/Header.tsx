@@ -72,23 +72,35 @@ export function Header({ userName, userId }: HeaderProps) {
       {/* Balance Display - Centered */}
       <div className="flex justify-center pb-6">
         <div className="flex items-center">
-          <span className="text-xl mr-3 font-medium">R$</span>
-          <button 
-            onClick={toggleBalance}
-            className="bg-[#a9cced] text-[#1a478c] rounded px-6 py-1 flex items-center shadow-sm h-7"
-          >
-            {/* Botão vazio, sem texto */}
-            <span className="w-16"></span>
-          </button>
-          <span className="ml-3 text-white">
-            {showBalance ? (
-              <EyeOff className="h-6 w-6" />
-            ) : (
-              <div className="eye-slash">
-                <Eye className="h-6 w-6" />
-              </div>
-            )}
-          </span>
+          {showBalance ? (
+            <div className="flex items-center bg-[#1a478c] px-5 py-2 rounded-md">
+              <span className="text-white text-3xl font-bold tracking-wider mr-4">R$ 5.129,57</span>
+              <button onClick={toggleBalance} className="text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
+                  <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
+                  <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
+                  <line x1="2" x2="22" y1="2" y2="22"></line>
+                </svg>
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center">
+              <span className="text-xl mr-3 font-medium">R$</span>
+              <button 
+                onClick={toggleBalance}
+                className="bg-[#a9cced] text-[#1a478c] rounded px-6 py-1 flex items-center shadow-sm h-7"
+              >
+                {/* Botão vazio, sem texto */}
+                <span className="w-16"></span>
+              </button>
+              <span className="ml-3 text-white">
+                <div className="eye-slash">
+                  <Eye className="h-6 w-6" />
+                </div>
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </header>

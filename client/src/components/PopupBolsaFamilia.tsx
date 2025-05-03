@@ -48,7 +48,7 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
 
         {/* Título */}
         <h2 className="text-[#333] text-2xl font-bold text-center mb-2 px-4">
-          Regularização obrigatória<br/>do Bolsa Família
+          Regularização obrigatória<br/><span className="font-extrabold">do Bolsa Família</span>
         </h2>
 
         {/* Descrição */}

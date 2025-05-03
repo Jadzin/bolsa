@@ -50,9 +50,6 @@ export default function ParcelasBolsaFamilia() {
         <p className="text-gray-700 text-sm mb-2">
           BENEFÍCIO BLOQUEADO POR PENDÊNCIA NO CADASTRO. É NECESSÁRIO ATUALIZAR OS DADOS DO BOLSA FAMÍLIA NO CAIXA TEM ATÉ O DIA DE HOJE ({new Date().toLocaleDateString('pt-BR')}). CASO NÃO ATUALIZAR, SEU BENEFICÍCIO SERÁ SUSPENSO.
         </p>
-        <p className="text-gray-700 text-xs">
-          CÓD. P2-39 | MOTIVO: DADOS DESATUALIZADOS
-        </p>
       </div>
 
       {/* Botão de atualização - Movido para logo abaixo da mensagem */}

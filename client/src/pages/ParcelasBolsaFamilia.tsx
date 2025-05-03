@@ -66,43 +66,47 @@ export default function ParcelasBolsaFamilia() {
       </div>
 
       {/* Lista de parcelas */}
-      <div className="bg-white">
-        {/* Implementação mais simples e direta */}
-        <div className="px-4 pt-4 pb-8">
-          <div className="flex flex-col items-start relative">
-            {/* Linha vertical passando pelos ícones */}
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-300"></div>
-            
-            {/* PROG BOLSA FAMILIA */}
-            <div className="w-full flex justify-between mb-12 relative">
-              <div className="flex items-start">
-                <div className="bg-orange-300 rounded-full h-8 w-8 flex items-center justify-center -ml-2 relative z-10">
+      <div className="bg-white px-4 py-4">
+        {/* Layout simples baseado exatamente na imagem de referência */}
+        <div className="flex flex-col relative pl-6 pr-2">
+          {/* Linha vertical central passando pelos ícones */}
+          <div className="absolute h-full w-[1px] bg-gray-300" style={{ left: '16px' }}></div>
+          
+          {/* PROG BOLSA FAMILIA - com ícone laranja */}
+          <div className="w-full flex justify-between mb-16 relative">
+            {/* Posicionando o ícone na linha */}
+            <div className="flex items-start">
+              <div className="absolute left-0 mt-0 z-10">
+                <div className="bg-orange-300 rounded-full h-8 w-8 flex items-center justify-center">
                   <AlertTriangle size={14} className="text-white" />
                 </div>
-                <div className="ml-3">
-                  <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
-                  <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (07/2023)</div>
-                </div>
               </div>
-              <div className="text-right">
-                <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 600,00</span></div>
+              <div className="ml-10">
+                <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
+                <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (07/2023)</div>
               </div>
             </div>
+            <div className="text-right">
+              <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 600,00</span></div>
+            </div>
+          </div>
 
-            {/* ADICIONAL */}
-            <div className="w-full flex justify-between mb-4 relative">
-              <div className="flex items-start">
-                <div className="bg-green-400 rounded-full h-8 w-8 flex items-center justify-center -ml-2 relative z-10">
+          {/* ADICIONAL - com ícone verde */}
+          <div className="w-full flex justify-between mb-4 relative">
+            {/* Posicionando o ícone na linha */}
+            <div className="flex items-start">
+              <div className="absolute left-0 mt-0 z-10">
+                <div className="bg-green-400 rounded-full h-8 w-8 flex items-center justify-center">
                   <span className="text-white font-bold">$</span>
                 </div>
-                <div className="ml-3">
-                  <div className="font-medium text-gray-800">ADICIONAL</div>
-                  <div className="text-green-600 text-sm font-medium">PAGO - Referência (05/2023)</div>
-                </div>
               </div>
-              <div className="text-right">
-                <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 200,00</span></div>
+              <div className="ml-10">
+                <div className="font-medium text-gray-800">ADICIONAL</div>
+                <div className="text-green-600 text-sm font-medium">PAGO - Referência (05/2023)</div>
               </div>
+            </div>
+            <div className="text-right">
+              <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 200,00</span></div>
             </div>
           </div>
         </div>

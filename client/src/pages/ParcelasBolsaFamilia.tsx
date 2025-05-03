@@ -32,13 +32,13 @@ export default function ParcelasBolsaFamilia() {
       {/* Navegação de abas com bordas arredondadas */}
       <div className="flex border-b relative bg-white">
         <div className="flex-1">
-          <div className="bg-[#2563eb] text-white py-3 text-center font-medium rounded-full mx-3 my-2">
+          <div className="bg-[#2563eb] text-white py-2 text-center font-medium text-sm rounded-full mx-6 my-2">
             ÚLTIMAS PARCELAS
           </div>
         </div>
         <div className="absolute left-1/2 h-full w-[1px] bg-gray-300 z-20"></div>
         <div className="flex-1">
-          <div className="text-gray-600 py-3 text-center font-medium mx-3 my-2">
+          <div className="text-gray-600 py-2 text-center font-medium text-sm mx-6 my-2">
             PARCELAS
           </div>
         </div>
@@ -48,10 +48,10 @@ export default function ParcelasBolsaFamilia() {
       <div className="bg-[#fff9e6] p-4">
         <h3 className="font-bold text-gray-700 mb-2">Mensagem do Bolsa Família</h3>
         <p className="text-gray-700 text-sm mb-2">
-          BENEFÍCIOS BLOQUEADOS POR INCONSISTÊNCIA CADASTRAL. É NECESSÁRIO ATUALIZAR OS DADOS VINCULADOS AO BOLSA FAMÍLIA NO APP CAIXA TEM ATÉ 02/05. A AUSÊNCIA DE ATUALIZAÇÃO RESULTARÁ NA SUSPENSÃO DE TODOS OS BENEFÍCIOS VINCULADOS AO PROGRAMA.
+          BENEFÍCIO BLOQUEADO POR AVERIGUAÇÃO. VOCÊ PRECISA ESCLARECER INFORMAÇÕES DO SEU CADASTRO. SE VOCÊ REALMENTE MORA SOZINHO PROCURE O SETOR DO CADASTRO ÚNICO NA SUA CIDADE ATÉ 11 DE AGOSTO E ATUALIZE SEU CADASTRO PARA EVITAR O CANCELAMENTO DO SEU BENEFÍCIO DO BOLSA FAMÍLIA.
         </p>
         <p className="text-gray-700 text-sm">
-          CÓD. P2-39 | MOTIVO: DADOS DESATUALIZADOS
+          LIGUE 121 | MOTIVO: AVE UNIPESSOAL | CÓD. P2-39
         </p>
       </div>
 
@@ -67,35 +67,40 @@ export default function ParcelasBolsaFamilia() {
 
       {/* Lista de parcelas */}
       <div className="bg-white">
-        {/* PROG BOLSA FAMILIA */}
-        <div className="p-4 border-b flex justify-between items-center">
-          <div className="flex items-start gap-2">
-            <div className="bg-orange-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
-              <AlertTriangle size={14} className="text-white" />
+        {/* Linha vertical para conectar os ícones */}
+        <div className="relative">
+          <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200 z-0"></div>
+          
+          {/* PROG BOLSA FAMILIA */}
+          <div className="p-4 border-b flex justify-between items-center relative z-10">
+            <div className="flex items-start gap-2">
+              <div className="bg-orange-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
+                <AlertTriangle size={14} className="text-white" />
+              </div>
+              <div>
+                <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
+                <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (07/2023)</div>
+              </div>
             </div>
-            <div>
-              <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
-              <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (07/2023)</div>
+            <div className="text-right">
+              <div className="font-bold text-[#2563eb]">R$ 600,00</div>
             </div>
           </div>
-          <div className="text-right">
-            <div className="font-bold text-[#2563eb]">600,00</div>
-          </div>
-        </div>
 
-        {/* ADICIONAL */}
-        <div className="p-4 border-b flex justify-between items-center">
-          <div className="flex items-start gap-2">
-            <div className="bg-green-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
-              <span className="text-white text-xs font-bold">$</span>
+          {/* ADICIONAL */}
+          <div className="p-4 border-b flex justify-between items-center relative z-10">
+            <div className="flex items-start gap-2">
+              <div className="bg-green-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
+                <span className="text-white text-xs font-bold">$</span>
+              </div>
+              <div>
+                <div className="font-medium text-gray-800">ADICIONAL</div>
+                <div className="text-green-600 text-sm font-medium">PAGO - Referência (05/2023)</div>
+              </div>
             </div>
-            <div>
-              <div className="font-medium text-gray-800">ADICIONAL</div>
-              <div className="text-green-600 text-sm font-medium">PAGO - Referência (05/2023)</div>
+            <div className="text-right">
+              <div className="font-bold text-[#2563eb]">R$ 200,00</div>
             </div>
-          </div>
-          <div className="text-right">
-            <div className="font-bold text-[#2563eb]">200,00</div>
           </div>
         </div>
       </div>

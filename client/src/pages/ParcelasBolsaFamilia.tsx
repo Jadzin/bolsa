@@ -69,12 +69,12 @@ export default function ParcelasBolsaFamilia() {
       <div className="bg-white">
         {/* Linha vertical para conectar os ícones */}
         <div className="relative">
-          <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200 z-0"></div>
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200 z-0"></div>
           
           {/* PROG BOLSA FAMILIA */}
-          <div className="p-4 border-b flex justify-between items-center relative z-10">
+          <div className="p-4 flex justify-between items-center relative z-10">
             <div className="flex items-start gap-2">
-              <div className="bg-orange-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
+              <div className="bg-orange-300 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
                 <AlertTriangle size={14} className="text-white" />
               </div>
               <div>
@@ -83,12 +83,12 @@ export default function ParcelasBolsaFamilia() {
               </div>
             </div>
             <div className="text-right">
-              <div className="font-bold text-[#2563eb]">R$ 600,00</div>
+              <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 600,00</span></div>
             </div>
           </div>
 
           {/* ADICIONAL */}
-          <div className="p-4 border-b flex justify-between items-center relative z-10">
+          <div className="p-4 flex justify-between items-center relative z-10">
             <div className="flex items-start gap-2">
               <div className="bg-green-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
                 <span className="text-white text-xs font-bold">$</span>
@@ -99,7 +99,7 @@ export default function ParcelasBolsaFamilia() {
               </div>
             </div>
             <div className="text-right">
-              <div className="font-bold text-[#2563eb]">R$ 200,00</div>
+              <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 200,00</span></div>
             </div>
           </div>
         </div>

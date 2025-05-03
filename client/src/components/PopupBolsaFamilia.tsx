@@ -38,25 +38,11 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
         {/* Ícone centralizado */}
         <div className="flex justify-center mt-6 mb-4">
           <div className="relative">
-            <div className="bg-[#ffefd0] rounded-full w-20 h-20 flex items-center justify-center">
-              <div className="text-[#e8a551]">
-                {/* Ícone de rosto sorridente em formato de chat/bolha mais parecido com a imagem */}
-                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.8214 2.48697 15.5291 3.33782 17L2.5 21.5L7 20.6622C8.47087 21.513 10.1786 22 12 22Z" fill="#e8a551" stroke="#e8a551" strokeWidth="0.5"/>
-                  <circle cx="8.5" cy="10.5" r="1.5" fill="#7D5425"/>
-                  <circle cx="15.5" cy="10.5" r="1.5" fill="#7D5425"/>
-                  <path d="M8 14.5C9.5 16 14.5 16 16 14.5" stroke="#7D5425" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
-              </div>
-            </div>
-            {/* Ícone de cadeado da imagem fornecida */}
-            <div className="absolute bottom-0 right-0">
-              <img 
-                src={cadeadoIcon} 
-                alt="Cadeado" 
-                className="w-10 h-10" 
-              />
-            </div>
+            <img 
+              src={cadeadoIcon} 
+              alt="Chat com cadeado" 
+              className="w-28 h-28" 
+            />
           </div>
         </div>
 

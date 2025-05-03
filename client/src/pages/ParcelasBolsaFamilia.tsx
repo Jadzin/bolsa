@@ -69,7 +69,7 @@ export default function ParcelasBolsaFamilia() {
       <div className="bg-white">
         <div className="flex flex-col relative">
           {/* Linha vertical que passa pelo centro dos ícones */}
-          <div className="absolute left-[16px] top-8 h-[calc(100%-32px)] w-[2px] bg-gray-200 z-0"></div>
+          <div className="absolute left-[19px] top-8 h-[calc(100%-32px)] w-[2px] bg-gray-200 z-0"></div>
           
           {/* PROG BOLSA FAMILIA */}
           <div className="p-4 flex justify-between items-center">

@@ -20,7 +20,7 @@ export function Header({ userName, userId }: HeaderProps) {
       <div className="flex items-center justify-between p-4">
         <div>
           {/* CAIXA tem! logo */}
-          <div className="h-8">
+          <div className="h-10">
             <img 
               src={caixaTemLogo} 
               alt="CAIXA tem!" 
@@ -30,14 +30,14 @@ export function Header({ userName, userId }: HeaderProps) {
         </div>
         
         {/* Right Icons */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-5">
           <div className="relative">
-            <Bell className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 w-2 h-2 bg-orange-400 rounded-full"></span>
+            <Bell className="h-6 w-6" />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-orange-400 rounded-full"></span>
           </div>
-          <PlaySquare className="h-5 w-5" />
-          <Search className="h-5 w-5" />
-          <MoreVertical className="h-5 w-5" />
+          <PlaySquare className="h-6 w-6" />
+          <Search className="h-6 w-6" />
+          <MoreVertical className="h-6 w-6" />
         </div>
       </div>
       

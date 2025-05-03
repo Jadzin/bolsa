@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Eye, EyeOff, Bell, PlaySquare, Search, MoreVertical, ChevronDown, Share2 } from 'lucide-react';
+import caixaTemLogo from '../assets/caixa tem logo.png';
 
 interface HeaderProps {
   userName: string;
@@ -19,9 +20,12 @@ export function Header({ userName, userId }: HeaderProps) {
       <div className="flex items-center justify-between p-4">
         <div>
           {/* CAIXA tem! logo */}
-          <div className="text-xl font-bold">
-            <span className="text-white">CAIXA</span>
-            <span className="text-[hsl(var(--caixa-green))]">tem!</span>
+          <div className="h-8">
+            <img 
+              src={caixaTemLogo} 
+              alt="CAIXA tem!" 
+              className="h-full"
+            />
           </div>
         </div>
         
@@ -41,28 +45,27 @@ export function Header({ userName, userId }: HeaderProps) {
       <div className="h-[1px] bg-blue-400 opacity-40"></div>
       
       {/* User Profile Section */}
-      <div className="p-4 flex items-center justify-between">
-        <div className="flex items-center">
+      <div className="p-4 flex items-center">
+        <div className="flex items-center flex-1">
           {/* User Profile */}
-          <div className="w-14 h-14 rounded-full overflow-hidden mr-3">
-            <img 
-              src="https://randomuser.me/api/portraits/women/44.jpg" 
-              alt="User" 
-              className="w-full h-full object-cover"
-            />
+          <div className="w-14 h-14 rounded-full bg-[#4a9de7] flex items-center justify-center mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
           </div>
-          <div>
+          <div className="flex-1">
             <div className="flex items-center">
               <div className="font-medium text-lg">{userName}</div>
               <ChevronDown className="h-4 w-4 ml-1" />
+              
+              {/* Share Button - Moved next to the name */}
+              <div className="bg-blue-400 bg-opacity-20 p-2 rounded-md ml-3">
+                <Share2 className="h-5 w-5" />
+              </div>
             </div>
             <div className="text-sm text-gray-100">{userId}</div>
           </div>
-        </div>
-        
-        {/* Share Button */}
-        <div className="bg-blue-400 bg-opacity-20 p-2 rounded-md">
-          <Share2 className="h-5 w-5" />
         </div>
       </div>
 

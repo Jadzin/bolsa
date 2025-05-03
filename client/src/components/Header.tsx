@@ -39,23 +39,25 @@ export function Header({ userName, userId }: HeaderProps) {
             <div className="text-xs text-gray-100">{userId}</div>
           </div>
         </div>
-        
-        {/* Balance Display */}
-        <div className="text-right">
-          <div className="text-sm">R$</div>
-          <div className="flex items-center">
-            <button 
-              onClick={toggleBalance}
-              className="bg-[hsl(var(--caixa-blue-light))] text-white text-xs rounded px-2 py-1 ml-1 flex items-center mt-1"
-            >
-              {showBalance ? 'Ocultar saldo' : 'Mostrar saldo'}
+      </div>
+
+      {/* Balance Display - Centered */}
+      <div className="flex justify-center mt-3">
+        <div className="flex items-center">
+          <span className="text-sm mr-2">R$</span>
+          <button 
+            onClick={toggleBalance}
+            className="bg-[#c2d8e9] text-[#1a478c] text-xs rounded-full px-4 py-1 flex items-center shadow-sm"
+          >
+            {showBalance ? 'Ocultar saldo' : 'Mostrar saldo'}
+            <span className="ml-2">
               {showBalance ? (
-                <EyeOff className="ml-1 h-4 w-4" />
+                <EyeOff className="h-4 w-4" />
               ) : (
-                <Eye className="ml-1 h-4 w-4" />
+                <Eye className="h-4 w-4" />
               )}
-            </button>
-          </div>
+            </span>
+          </button>
         </div>
       </div>
     </header>

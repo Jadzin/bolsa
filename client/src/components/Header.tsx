@@ -42,7 +42,7 @@ export function Header({ userName, userId }: HeaderProps) {
       </div>
       
       {/* Divider Line */}
-      <div className="h-[1px] bg-blue-400 opacity-40"></div>
+      <div className="h-[2px] bg-blue-400 opacity-50"></div>
       
       {/* User Profile Section */}
       <div className="p-4 flex items-center">

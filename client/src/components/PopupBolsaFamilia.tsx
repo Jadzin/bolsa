@@ -38,14 +38,22 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
         <div className="flex justify-center mt-6 mb-4">
           <div className="relative">
             <div className="bg-[#ffefd0] rounded-full w-20 h-20 flex items-center justify-center">
-              <div className="text-[#e0984c] text-2xl">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM8 17.5C7.17 17.5 6.5 16.83 6.5 16C6.5 15.17 7.17 14.5 8 14.5C8.83 14.5 9.5 15.17 9.5 16C9.5 16.83 8.83 17.5 8 17.5ZM12 17.5C11.17 17.5 10.5 16.83 10.5 16C10.5 15.17 11.17 14.5 12 14.5C12.83 14.5 13.5 15.17 13.5 16C13.5 16.83 12.83 17.5 12 17.5ZM16 17.5C15.17 17.5 14.5 16.83 14.5 16C14.5 15.17 15.17 14.5 16 14.5C16.83 14.5 17.5 15.17 17.5 16C17.5 16.83 16.83 17.5 16 17.5ZM8 13.5C7.17 13.5 6.5 12.83 6.5 12C6.5 11.17 7.17 10.5 8 10.5C8.83 10.5 9.5 11.17 9.5 12C9.5 12.83 8.83 13.5 8 13.5ZM12 13.5C11.17 13.5 10.5 12.83 10.5 12C10.5 11.17 11.17 10.5 12 10.5C12.83 10.5 13.5 11.17 13.5 12C13.5 12.83 12.83 13.5 12 13.5ZM16 13.5C15.17 13.5 14.5 12.83 14.5 12C14.5 11.17 15.17 10.5 16 10.5C16.83 10.5 17.5 11.17 17.5 12C17.5 12.83 16.83 13.5 16 13.5ZM8 9.5C7.17 9.5 6.5 8.83 6.5 8C6.5 7.17 7.17 6.5 8 6.5C8.83 6.5 9.5 7.17 9.5 8C9.5 8.83 8.83 9.5 8 9.5ZM12 9.5C11.17 9.5 10.5 8.83 10.5 8C10.5 7.17 11.17 6.5 12 6.5C12.83 6.5 13.5 7.17 13.5 8C13.5 8.83 12.83 9.5 12 9.5ZM16 9.5C15.17 9.5 14.5 8.83 14.5 8C14.5 7.17 15.17 6.5 16 6.5C16.83 6.5 17.5 7.17 17.5 8C17.5 8.83 16.83 9.5 16 9.5Z" fill="#e8a551" />
+              <div className="text-[#e8a551]">
+                {/* Ícone de rosto sorridente em formato de chat/bolha mais parecido com a imagem */}
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.8214 2.48697 15.5291 3.33782 17L2.5 21.5L7 20.6622C8.47087 21.513 10.1786 22 12 22Z" fill="#e8a551" stroke="#e8a551" strokeWidth="0.5"/>
+                  <circle cx="8.5" cy="10.5" r="1.5" fill="#7D5425"/>
+                  <circle cx="15.5" cy="10.5" r="1.5" fill="#7D5425"/>
+                  <path d="M8 14.5C9.5 16 14.5 16 16 14.5" stroke="#7D5425" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
               </div>
             </div>
-            <div className="absolute bottom-0 right-0 bg-[#e8a551] rounded-full w-8 h-8 flex items-center justify-center">
-              <Lock className="h-4 w-4 text-white" />
+            {/* Ícone de cadeado mais parecido com a imagem de referência */}
+            <div className="absolute bottom-0 right-0 bg-[#e8a551] rounded-full w-8 h-8 flex items-center justify-center border-2 border-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
             </div>
           </div>
         </div>

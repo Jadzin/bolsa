@@ -87,7 +87,7 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
         <div className="px-6 pb-6">
           <button
             onClick={handleUpdateClick}
-            className="w-full py-4 bg-[#f0a055] hover:bg-[#e8964a] text-white font-medium rounded-md transition-colors"
+            className="w-full py-4 bg-[#ee8435] hover:bg-[#df7426] text-white font-medium rounded-md transition-colors"
           >
             Atualizar meu cadastro agora
           </button>

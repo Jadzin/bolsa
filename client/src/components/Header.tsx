@@ -74,7 +74,7 @@ export function Header({ userName, userId }: HeaderProps) {
         <div className="flex items-center">
           {showBalance ? (
             <div className="flex items-center">
-              <span className="text-white text-xl font-bold mr-4">R$ 5.129,57</span>
+              <span className="text-white text-2xl font-bold mr-4">R$ 5.129,57</span>
               <button onClick={toggleBalance} className="text-white">
                 <Eye className="h-6 w-6" />
               </button>

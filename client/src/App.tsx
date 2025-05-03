@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import AtualizacaoCadastral from "./pages/AtualizacaoCadastral";
+import ParcelasBolsaFamilia from "./pages/ParcelasBolsaFamilia";
 
 function Router() {
   return (
@@ -13,6 +14,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/:nome/:cpf" component={Home} />
       <Route path="/atualizacao/:nome/:cpf" component={AtualizacaoCadastral} />
+      <Route path="/parcelas" component={ParcelasBolsaFamilia} />
       <Route component={NotFound} />
     </Switch>
   );

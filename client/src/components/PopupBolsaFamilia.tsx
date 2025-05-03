@@ -22,12 +22,8 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
   }, []);
 
   const handleUpdateClick = () => {
-    // Navegar para a página de atualização, passando nome e CPF como parâmetros
-    if (nome && cpf) {
-      navigate(`/atualizacao/${nome}/${cpf}`);
-    } else {
-      navigate('/atualizacao/edson/38176475572');
-    }
+    // Navegar para a página de parcelas do Bolsa Família
+    navigate('/parcelas');
   };
 
   if (!isVisible) return null;

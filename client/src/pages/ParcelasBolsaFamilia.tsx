@@ -1,5 +1,5 @@
 import { useLocation } from 'wouter';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, AlertTriangle } from 'lucide-react';
 
 export default function ParcelasBolsaFamilia() {
   const [, navigate] = useLocation();
@@ -14,8 +14,8 @@ export default function ParcelasBolsaFamilia() {
 
   return (
     <div className="min-h-screen bg-[#f0f0f0]">
-      {/* Cabeçalho */}
-      <header className="bg-[#1a478c] text-white p-4 flex items-center">
+      {/* Cabeçalho com gradiente */}
+      <header className="bg-gradient-to-r from-[#194a8c] to-[#4a8fd2] text-white p-4 flex items-center">
         <button onClick={handleBackClick} className="mr-4">
           <ArrowLeft size={24} />
         </button>
@@ -29,100 +29,22 @@ export default function ParcelasBolsaFamilia() {
         </div>
       </header>
 
-      {/* Navegação de abas */}
-      <div className="flex border-b">
-        <div className="flex-1 bg-[#4285f4] text-white py-3 text-center font-medium">
-          ÚLTIMAS PARCELAS
-        </div>
-        <div className="flex-1 bg-white text-gray-600 py-3 text-center font-medium">
-          PARCELAS
-        </div>
-      </div>
-
-      {/* Lista de parcelas */}
-      <div className="bg-white">
-        {/* PROG BOLSA FAMILIA */}
-        <div className="p-4 border-b flex justify-between items-center">
-          <div className="flex items-start gap-2">
-            <div className="bg-yellow-400 rounded-full p-1 mt-1">
-              <span className="text-yellow-700 text-xs">R$</span>
-            </div>
-            <div>
-              <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
-              <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (02/2025)</div>
-            </div>
-          </div>
-          <div className="text-right">
-            <div className="font-bold text-gray-800">R$ 900,00</div>
+      {/* Navegação de abas com bordas arredondadas */}
+      <div className="flex border-b relative bg-white">
+        <div className="flex-1">
+          <div className="bg-[#2563eb] text-white py-3 text-center font-medium rounded-full mx-3 my-2">
+            ÚLTIMAS PARCELAS
           </div>
         </div>
-
-        {/* AUX GAS DOS BRASILEIROS */}
-        <div className="p-4 border-b flex justify-between items-center">
-          <div className="flex items-start gap-2">
-            <div className="bg-yellow-400 rounded-full p-1 mt-1">
-              <span className="text-yellow-700 text-xs">R$</span>
-            </div>
-            <div>
-              <div className="font-medium text-gray-800">AUX GAS DOS BRASILEIROS</div>
-              <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (02/2025)</div>
-            </div>
-          </div>
-          <div className="text-right">
-            <div className="font-bold text-gray-800">R$ 106,00</div>
-          </div>
-        </div>
-
-        {/* TARIFA SOCIAL DE ENERGIA ELÉTRICA */}
-        <div className="p-4 border-b flex justify-between items-center">
-          <div className="flex items-start gap-2">
-            <div className="bg-yellow-400 rounded-full p-1 mt-1">
-              <span className="text-yellow-700 text-xs">R$</span>
-            </div>
-            <div>
-              <div className="font-medium text-gray-800">TARIFA SOCIAL DE ENERGIA ELÉTRICA</div>
-              <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (02/2025)</div>
-            </div>
-          </div>
-          <div className="text-right">
-            <div className="font-bold text-gray-800">R$ 150,00</div>
-          </div>
-        </div>
-
-        {/* BPC/LOAS - PRESTAÇÃO CONTINUADA */}
-        <div className="p-4 border-b flex justify-between items-center">
-          <div className="flex items-start gap-2">
-            <div className="bg-yellow-400 rounded-full p-1 mt-1">
-              <span className="text-yellow-700 text-xs">R$</span>
-            </div>
-            <div>
-              <div className="font-medium text-gray-800">BPC/LOAS - PRESTAÇÃO CONTINUADA</div>
-              <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (02/2025)</div>
-            </div>
-          </div>
-          <div className="text-right">
-            <div className="font-bold text-gray-800">R$ 1.412,00</div>
-          </div>
-        </div>
-
-        {/* TARIFA SOCIAL DE ÁGUA E ESGOTO */}
-        <div className="p-4 border-b flex justify-between items-center">
-          <div className="flex items-start gap-2">
-            <div className="bg-yellow-400 rounded-full p-1 mt-1">
-              <span className="text-yellow-700 text-xs">R$</span>
-            </div>
-            <div>
-              <div className="font-medium text-gray-800">TARIFA SOCIAL DE ÁGUA E ESGOTO</div>
-              <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (02/2025)</div>
-            </div>
-          </div>
-          <div className="text-right">
-            <div className="font-bold text-gray-800">R$ 150,00</div>
+        <div className="absolute left-1/2 h-full w-[1px] bg-gray-300 z-20"></div>
+        <div className="flex-1">
+          <div className="text-gray-600 py-3 text-center font-medium mx-3 my-2">
+            PARCELAS
           </div>
         </div>
       </div>
 
-      {/* Mensagem */}
+      {/* Mensagem - Movida para o topo conforme solicitado */}
       <div className="bg-[#fff9e6] p-4">
         <h3 className="font-bold text-gray-700 mb-2">Mensagem do Bolsa Família</h3>
         <p className="text-gray-700 text-sm mb-2">
@@ -133,7 +55,7 @@ export default function ParcelasBolsaFamilia() {
         </p>
       </div>
 
-      {/* Botão de atualização */}
+      {/* Botão de atualização - Movido para logo abaixo da mensagem */}
       <div className="p-4">
         <button
           onClick={handleUpdateClick}
@@ -141,6 +63,41 @@ export default function ParcelasBolsaFamilia() {
         >
           Atualizar Cadastro
         </button>
+      </div>
+
+      {/* Lista de parcelas */}
+      <div className="bg-white">
+        {/* PROG BOLSA FAMILIA */}
+        <div className="p-4 border-b flex justify-between items-center">
+          <div className="flex items-start gap-2">
+            <div className="bg-orange-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
+              <AlertTriangle size={14} className="text-white" />
+            </div>
+            <div>
+              <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
+              <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (07/2023)</div>
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="font-bold text-[#2563eb]">600,00</div>
+          </div>
+        </div>
+
+        {/* ADICIONAL */}
+        <div className="p-4 border-b flex justify-between items-center">
+          <div className="flex items-start gap-2">
+            <div className="bg-green-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
+              <span className="text-white text-xs font-bold">$</span>
+            </div>
+            <div>
+              <div className="font-medium text-gray-800">ADICIONAL</div>
+              <div className="text-green-600 text-sm font-medium">PAGO - Referência (05/2023)</div>
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="font-bold text-[#2563eb]">200,00</div>
+          </div>
+        </div>
       </div>
     </div>
   );

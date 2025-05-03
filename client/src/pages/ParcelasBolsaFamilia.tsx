@@ -67,17 +67,19 @@ export default function ParcelasBolsaFamilia() {
 
       {/* Lista de parcelas */}
       <div className="bg-white">
-        {/* Linha vertical no centro dos ícones */}
-        <div className="relative">
-          <div className="absolute left-[14px] top-8 bottom-8 w-0.5 bg-gray-200"></div>
+        <div className="flex flex-col relative">
+          {/* Linha vertical que passa pelo centro dos ícones */}
+          <div className="absolute left-[16px] top-8 h-[calc(100%-32px)] w-[2px] bg-gray-200 z-0"></div>
           
           {/* PROG BOLSA FAMILIA */}
           <div className="p-4 flex justify-between items-center">
-            <div className="flex items-start gap-2">
-              <div className="bg-orange-300 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
-                <AlertTriangle size={14} className="text-white" />
+            <div className="flex items-start">
+              <div className="relative z-10 flex items-center justify-center">
+                <div className="bg-orange-300 rounded-full w-8 h-8 flex items-center justify-center">
+                  <AlertTriangle size={14} className="text-white" />
+                </div>
               </div>
-              <div>
+              <div className="ml-2">
                 <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
                 <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (07/2023)</div>
               </div>
@@ -89,11 +91,13 @@ export default function ParcelasBolsaFamilia() {
 
           {/* ADICIONAL */}
           <div className="p-4 flex justify-between items-center">
-            <div className="flex items-start gap-2">
-              <div className="bg-green-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
-                <span className="text-white text-xs font-bold">$</span>
+            <div className="flex items-start">
+              <div className="relative z-10 flex items-center justify-center">
+                <div className="bg-green-400 rounded-full w-8 h-8 flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">$</span>
+                </div>
               </div>
-              <div>
+              <div className="ml-2">
                 <div className="font-medium text-gray-800">ADICIONAL</div>
                 <div className="text-green-600 text-sm font-medium">PAGO - Referência (05/2023)</div>
               </div>

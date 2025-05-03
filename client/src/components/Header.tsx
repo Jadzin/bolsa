@@ -82,17 +82,14 @@ export function Header({ userName, userId }: HeaderProps) {
           ) : (
             <div className="flex items-center">
               <span className="text-xl mr-3 font-medium">R$</span>
-              <button 
-                onClick={toggleBalance}
-                className="bg-[#a9cced] text-[#1a478c] rounded px-6 py-1 flex items-center shadow-sm h-7"
-              >
+              <div className="bg-[#a9cced] text-[#1a478c] rounded px-6 py-1 flex items-center shadow-sm h-7">
                 {/* Botão vazio, sem texto */}
                 <span className="w-16"></span>
-              </button>
+              </div>
               <span className="ml-3 text-white">
-                <div className="eye-slash">
+                <button onClick={toggleBalance} className="eye-slash">
                   <Eye className="h-6 w-6" />
-                </div>
+                </button>
               </span>
             </div>
           )}

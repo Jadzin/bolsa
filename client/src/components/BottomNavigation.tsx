@@ -9,8 +9,8 @@ export function BottomNavigation() {
       </button>
       
       <button className="flex flex-col items-center justify-center space-y-1 flex-1">
-        <Banknote className="h-5 w-5 text-gray-500" />
-        <span className="text-xs text-gray-500">R$</span>
+        <div className="text-center text-gray-500 font-medium">R$</div>
+        <span className="text-xs text-gray-500">Pagar</span>
       </button>
       
       <button className="flex flex-col items-center justify-center space-y-1 flex-1 relative">

@@ -14,7 +14,7 @@ export function Header({ userName, userId }: HeaderProps) {
   };
 
   return (
-    <header className="bg-[hsl(var(--caixa-blue))] text-white p-4 pb-6">
+    <header className="header-gradient text-white p-4 pb-6">
       <div className="flex items-center mb-4">
         <div className="flex-1">
           {/* CAIXA tem! logo */}
@@ -47,17 +47,19 @@ export function Header({ userName, userId }: HeaderProps) {
           <span className="text-sm mr-2">R$</span>
           <button 
             onClick={toggleBalance}
-            className="bg-[#c2d8e9] text-[#1a478c] text-xs rounded-full px-4 py-1 flex items-center shadow-sm"
+            className="bg-[#c2d8e9] text-[#1a478c] text-xs rounded px-4 py-1 flex items-center shadow-sm"
           >
             {showBalance ? 'Ocultar saldo' : 'Mostrar saldo'}
-            <span className="ml-2">
-              {showBalance ? (
-                <EyeOff className="h-4 w-4" />
-              ) : (
-                <Eye className="h-4 w-4" />
-              )}
-            </span>
           </button>
+          <span className="ml-2 text-white">
+            {showBalance ? (
+              <EyeOff className="h-4 w-4" />
+            ) : (
+              <div className="eye-slash">
+                <Eye className="h-4 w-4" />
+              </div>
+            )}
+          </span>
         </div>
       </div>
     </header>

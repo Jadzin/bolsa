@@ -27,6 +27,7 @@
   /* Custom CAIXA Tem colors */
   --caixa-blue: 217 68% 34%;
   --caixa-blue-light: 207 73% 57%;
+  --caixa-blue-dark: 217 68% 24%;
   --caixa-green: 80 55% 51%;
   --medium-gray: 0 0% 46%;
 }
@@ -71,4 +72,23 @@
   border-radius: 4px;
   font-size: 10px;
   display: inline-block;
+}
+
+.header-gradient {
+  background: linear-gradient(to bottom, #19477b, #1f5899);
+}
+
+.eye-slash {
+  position: relative;
+}
+
+.eye-slash::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform: rotate(45deg);
 }

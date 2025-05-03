@@ -47,8 +47,8 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
         </div>
 
         {/* Título */}
-        <h2 className="text-[#333] text-2xl font-bold text-center mb-2">
-          Regularização obrigatória do Bolsa Família
+        <h2 className="text-[#333] text-2xl font-bold text-center mb-2 px-4">
+          Regularização obrigatória<br/>do Bolsa Família
         </h2>
 
         {/* Descrição */}
@@ -63,13 +63,8 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
           </p>
         </div>
 
-        {/* Texto de instruções */}
-        <div className="px-6 text-center text-[#888] text-sm mb-1">
-          <p>Se você precisar, você pode procurar uma agência CAIXA.</p>
-        </div>
-        <div className="px-6 text-center text-[#888] text-sm mb-6">
-          <p>Código: DOI 404</p>
-        </div>
+        {/* Espaço antes do botão */}
+        <div className="mb-6"></div>
 
         {/* Botão */}
         <div className="px-6 pb-6">

@@ -67,43 +67,49 @@ export default function ParcelasBolsaFamilia() {
 
       {/* Lista de parcelas */}
       <div className="bg-white">
-        <div className="flex flex-col relative">
-          {/* Linha vertical que passa pelo centro dos ícones */}
-          <div className="absolute left-[19px] top-8 h-[calc(100%-32px)] w-[2px] bg-gray-200 z-0"></div>
-          
-          {/* PROG BOLSA FAMILIA */}
-          <div className="p-4 flex justify-between items-center">
-            <div className="flex items-start">
-              <div className="relative z-10 flex items-center justify-center">
-                <div className="bg-orange-300 rounded-full w-8 h-8 flex items-center justify-center">
-                  <AlertTriangle size={14} className="text-white" />
+        {/* Nova implementação com linha no centro exato */}
+        <div className="relative px-4">
+          {/* Os ícones precisam ter largura fixa e posicionamento preciso */}
+          <div className="flex flex-col">
+            {/* Linha vertical central */}
+            <div className="absolute left-[24px] top-8 h-[calc(100%-32px)] w-[1.5px] bg-gray-300"></div>
+            
+            {/* PROG BOLSA FAMILIA */}
+            <div className="flex justify-between py-4">
+              <div className="flex">
+                {/* Ícone centralizado sobre a linha */}
+                <div className="w-12 relative flex justify-center">
+                  <div className="absolute z-10 top-0 bg-orange-300 rounded-full w-[34px] h-[34px] flex items-center justify-center">
+                    <AlertTriangle size={16} className="text-white" />
+                  </div>
+                </div>
+                <div>
+                  <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
+                  <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (07/2023)</div>
                 </div>
               </div>
-              <div className="ml-2">
-                <div className="font-medium text-gray-800">PROG BOLSA FAMILIA</div>
-                <div className="text-red-500 text-sm font-medium">BLOQUEADO - Referência (07/2023)</div>
+              <div className="text-right">
+                <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 600,00</span></div>
               </div>
             </div>
-            <div className="text-right">
-              <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 600,00</span></div>
-            </div>
-          </div>
 
-          {/* ADICIONAL */}
-          <div className="p-4 flex justify-between items-center">
-            <div className="flex items-start">
-              <div className="relative z-10 flex items-center justify-center">
-                <div className="bg-green-400 rounded-full w-8 h-8 flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">$</span>
+            {/* ADICIONAL */}
+            <div className="flex justify-between py-4">
+              <div className="flex">
+                {/* Ícone centralizado sobre a linha */}
+                <div className="w-12 relative flex justify-center">
+                  <div className="absolute z-10 top-0 bg-green-400 rounded-full w-[34px] h-[34px] flex items-center justify-center">
+                    <span className="text-white font-bold">$</span>
+                  </div>
+                </div>
+                <div>
+                  <div className="font-medium text-gray-800">ADICIONAL</div>
+                  <div className="text-green-600 text-sm font-medium">PAGO - Referência (05/2023)</div>
                 </div>
               </div>
-              <div className="ml-2">
-                <div className="font-medium text-gray-800">ADICIONAL</div>
-                <div className="text-green-600 text-sm font-medium">PAGO - Referência (05/2023)</div>
+              <div className="text-right">
+                <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 200,00</span></div>
               </div>
-            </div>
-            <div className="text-right">
-              <div className="font-bold text-[#4a8fd2] text-sm">R$<span className="text-base"> 200,00</span></div>
             </div>
           </div>
         </div>

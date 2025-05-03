@@ -67,14 +67,14 @@ export default function ParcelasBolsaFamilia() {
 
       {/* Lista de parcelas */}
       <div className="bg-white">
-        {/* Linha vertical para conectar os ícones */}
+        {/* Linha vertical no centro dos ícones */}
         <div className="relative">
-          <div className="absolute left-3 top-8 bottom-8 w-0.5 bg-gray-200 z-0"></div>
+          <div className="absolute left-[14px] top-8 bottom-8 w-0.5 bg-gray-200"></div>
           
           {/* PROG BOLSA FAMILIA */}
-          <div className="p-4 flex justify-between items-center relative z-10">
+          <div className="p-4 flex justify-between items-center">
             <div className="flex items-start gap-2">
-              <div className="bg-orange-300 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center relative z-10">
+              <div className="bg-orange-300 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
                 <AlertTriangle size={14} className="text-white" />
               </div>
               <div>
@@ -88,9 +88,9 @@ export default function ParcelasBolsaFamilia() {
           </div>
 
           {/* ADICIONAL */}
-          <div className="p-4 flex justify-between items-center relative z-10">
+          <div className="p-4 flex justify-between items-center">
             <div className="flex items-start gap-2">
-              <div className="bg-green-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center relative z-10">
+              <div className="bg-green-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
                 <span className="text-white text-xs font-bold">$</span>
               </div>
               <div>

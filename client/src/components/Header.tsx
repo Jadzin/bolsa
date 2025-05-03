@@ -47,7 +47,7 @@ export function Header({ userName, userId }: HeaderProps) {
           <span className="text-sm mr-2">R$</span>
           <button 
             onClick={toggleBalance}
-            className="bg-[#c2d8e9] text-[#1a478c] text-xs rounded px-4 py-1 flex items-center shadow-sm"
+            className="bg-[#a9cced] text-[#1a478c] text-xs rounded px-4 py-1 flex items-center shadow-sm"
           >
             {showBalance ? 'Ocultar saldo' : 'Mostrar saldo'}
           </button>

@@ -67,20 +67,20 @@ export default function ParcelasBolsaFamilia() {
 
       {/* Lista de parcelas */}
       <div className="bg-white">
-        {/* Nova implementação com linha no centro exato */}
+        {/* Nova implementação com linha atravessando os ícones */}
         <div className="relative px-4">
-          {/* Os ícones precisam ter largura fixa e posicionamento preciso */}
           <div className="flex flex-col pl-2">
-            {/* Linha vertical central */}
-            <div className="absolute left-[16px] top-8 h-[calc(100%-32px)] w-[1.5px] bg-gray-300"></div>
+            {/* Linha vertical que atravessa completamente os ícones de ponta a ponta */}
+            <div className="absolute left-[16px] top-0 h-full w-[1.5px] bg-gray-300"></div>
             
             {/* PROG BOLSA FAMILIA */}
             <div className="flex justify-between py-4">
               <div className="flex">
-                {/* Ícone centralizado sobre a linha - mais à esquerda */}
-                <div className="w-6 relative flex justify-center">
-                  <div className="absolute z-10 top-0 left-[-5px] bg-orange-300 rounded-full w-[34px] h-[34px] flex items-center justify-center">
-                    <AlertTriangle size={16} className="text-white" />
+                {/* Ícone com a linha passando através dele */}
+                <div className="w-6 relative flex justify-center" style={{ zIndex: 5 }}>
+                  <div className="absolute z-5 top-0 left-[-5px] bg-orange-300 rounded-full w-[34px] h-[34px] flex items-center justify-center">
+                    {/* A linha passa por trás do ícone, mas o conteúdo fica visível */}
+                    <AlertTriangle size={16} className="text-white z-20" />
                   </div>
                 </div>
                 <div className="ml-6">
@@ -96,10 +96,11 @@ export default function ParcelasBolsaFamilia() {
             {/* ADICIONAL */}
             <div className="flex justify-between py-4">
               <div className="flex">
-                {/* Ícone centralizado sobre a linha - mais à esquerda */}
-                <div className="w-6 relative flex justify-center">
-                  <div className="absolute z-10 top-0 left-[-5px] bg-green-400 rounded-full w-[34px] h-[34px] flex items-center justify-center">
-                    <span className="text-white font-bold">$</span>
+                {/* Ícone com a linha passando através dele */}
+                <div className="w-6 relative flex justify-center" style={{ zIndex: 5 }}>
+                  <div className="absolute z-5 top-0 left-[-5px] bg-green-400 rounded-full w-[34px] h-[34px] flex items-center justify-center">
+                    {/* A linha passa por trás do ícone, mas o conteúdo fica visível */}
+                    <span className="text-white font-bold z-20">$</span>
                   </div>
                 </div>
                 <div className="ml-6">

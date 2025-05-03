@@ -60,8 +60,8 @@ export function Header({ userName, userId }: HeaderProps) {
               <ChevronDown className="h-4 w-4 ml-1" />
               
               {/* Share Button - Moved next to the name */}
-              <div className="bg-blue-400 bg-opacity-20 p-2 rounded-md ml-3">
-                <Share2 className="h-5 w-5" />
+              <div className="bg-blue-400 bg-opacity-20 p-1.5 rounded-md ml-2">
+                <Share2 className="h-4 w-4" />
               </div>
             </div>
             <div className="text-sm text-gray-100">{userId}</div>
@@ -72,22 +72,19 @@ export function Header({ userName, userId }: HeaderProps) {
       {/* Balance Display - Centered */}
       <div className="flex justify-center pb-6">
         <div className="flex items-center">
-          <span className="text-base mr-2 font-medium">R$</span>
+          <span className="text-xl mr-3 font-medium">R$</span>
           <button 
             onClick={toggleBalance}
-            className="bg-[#a9cced] text-[#1a478c] text-sm rounded px-5 py-1.5 flex items-center shadow-sm"
+            className="bg-[#a9cced] text-[#1a478c] rounded-full p-2 flex items-center justify-center shadow-sm"
           >
-            {showBalance ? 'Ocultar saldo' : 'Mostrar saldo'}
-          </button>
-          <span className="ml-3 text-white">
             {showBalance ? (
-              <EyeOff className="h-5 w-5" />
+              <EyeOff className="h-6 w-6" />
             ) : (
               <div className="eye-slash">
-                <Eye className="h-5 w-5" />
+                <Eye className="h-6 w-6" />
               </div>
             )}
-          </span>
+          </button>
         </div>
       </div>
     </header>

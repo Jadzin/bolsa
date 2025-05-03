@@ -14,7 +14,7 @@ export function Header({ userName, userId }: HeaderProps) {
   };
 
   return (
-    <header className="header-gradient text-white p-4 pb-6">
+    <header className="header-gradient text-white p-4 pb-10">
       <div className="flex items-center mb-4">
         <div className="flex-1">
           {/* CAIXA tem! logo */}
@@ -28,35 +28,35 @@ export function Header({ userName, userId }: HeaderProps) {
       <div className="flex items-center">
         {/* User Profile */}
         <div className="flex items-center flex-1">
-          <div className="w-10 h-10 rounded-full bg-[hsl(var(--caixa-blue-light))] flex items-center justify-center mr-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <div className="w-12 h-12 rounded-full bg-[#4a9de7] flex items-center justify-center mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </div>
           <div>
-            <div className="font-medium">{userName}</div>
-            <div className="text-xs text-gray-100">{userId}</div>
+            <div className="font-medium text-lg">{userName}</div>
+            <div className="text-sm text-gray-100">{userId}</div>
           </div>
         </div>
       </div>
 
       {/* Balance Display - Centered */}
-      <div className="flex justify-center mt-3">
+      <div className="flex justify-center mt-6">
         <div className="flex items-center">
-          <span className="text-sm mr-2">R$</span>
+          <span className="text-base mr-2 font-medium">R$</span>
           <button 
             onClick={toggleBalance}
-            className="bg-[#a9cced] text-[#1a478c] text-xs rounded px-4 py-1 flex items-center shadow-sm"
+            className="bg-[#a9cced] text-[#1a478c] text-sm rounded px-5 py-1.5 flex items-center shadow-sm"
           >
             {showBalance ? 'Ocultar saldo' : 'Mostrar saldo'}
           </button>
-          <span className="ml-2 text-white">
+          <span className="ml-3 text-white">
             {showBalance ? (
-              <EyeOff className="h-4 w-4" />
+              <EyeOff className="h-5 w-5" />
             ) : (
               <div className="eye-slash">
-                <Eye className="h-4 w-4" />
+                <Eye className="h-5 w-5" />
               </div>
             )}
           </span>

@@ -36,7 +36,7 @@ export default function ParcelasBolsaFamilia() {
             ÚLTIMAS PARCELAS
           </div>
         </div>
-        <div className="absolute left-1/2 h-full w-[1px] bg-gray-300 z-20"></div>
+        <div className="absolute left-1/2 top-4 bottom-4 w-[1px] bg-gray-300 z-20"></div>
         <div className="flex-1">
           <div className="text-gray-600 py-2 text-center font-medium text-sm mx-6 my-2">
             PARCELAS
@@ -69,12 +69,12 @@ export default function ParcelasBolsaFamilia() {
       <div className="bg-white">
         {/* Linha vertical para conectar os ícones */}
         <div className="relative">
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200 z-0"></div>
+          <div className="absolute left-3 top-8 bottom-8 w-0.5 bg-gray-200 z-0"></div>
           
           {/* PROG BOLSA FAMILIA */}
           <div className="p-4 flex justify-between items-center relative z-10">
             <div className="flex items-start gap-2">
-              <div className="bg-orange-300 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
+              <div className="bg-orange-300 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center relative z-10">
                 <AlertTriangle size={14} className="text-white" />
               </div>
               <div>
@@ -90,7 +90,7 @@ export default function ParcelasBolsaFamilia() {
           {/* ADICIONAL */}
           <div className="p-4 flex justify-between items-center relative z-10">
             <div className="flex items-start gap-2">
-              <div className="bg-green-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center">
+              <div className="bg-green-400 rounded-full p-1 mt-1 w-6 h-6 flex items-center justify-center relative z-10">
                 <span className="text-white text-xs font-bold">$</span>
               </div>
               <div>

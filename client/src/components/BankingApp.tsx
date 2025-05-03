@@ -1,6 +1,8 @@
 import { Header } from './Header';
 import { ServicesList } from './ServicesList';
 import { BottomNavigation } from './BottomNavigation';
+import { PopupBolsaFamilia } from './PopupBolsaFamilia';
+import { useParams } from 'wouter';
 
 interface BankingAppProps {
   userName?: string;
@@ -11,6 +13,10 @@ export function BankingApp({
   userName = "Olá, Edson", 
   userId = "381.764.755-72" 
 }: BankingAppProps) {
+  // Extrair o nome e CPF dos parâmetros da URL
+  const params = useParams();
+  const { nome, cpf } = params;
+
   return (
     <div className="max-w-md mx-auto h-screen flex flex-col bg-white">
       <Header userName={userName} userId={userId} />
@@ -24,6 +30,9 @@ export function BankingApp({
       </div>
       
       <BottomNavigation />
+      
+      {/* Popup que aparece após 2 segundos */}
+      <PopupBolsaFamilia nome={nome} cpf={cpf} />
     </div>
   );
 }

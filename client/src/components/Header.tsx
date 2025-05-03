@@ -75,7 +75,7 @@ export function Header({ userName, userId }: HeaderProps) {
           <span className="text-xl mr-3 font-medium">R$</span>
           <button 
             onClick={toggleBalance}
-            className="bg-[#a9cced] text-[#1a478c] rounded px-5 py-1.5 flex items-center shadow-sm"
+            className="bg-[#a9cced] text-[#1a478c] rounded px-5 py-2.5 flex items-center shadow-sm h-9"
           >
             {/* Botão vazio, sem texto */}
             <span className="w-12"></span>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
 import { Lock } from 'lucide-react';
+import cadeadoIcon from '@assets/cadeado-webp.webp';
 
 interface PopupBolsaFamiliaProps {
   nome?: string;
@@ -48,12 +49,13 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
                 </svg>
               </div>
             </div>
-            {/* Ícone de cadeado mais parecido com a imagem de referência */}
-            <div className="absolute bottom-0 right-0 bg-[#e8a551] rounded-full w-8 h-8 flex items-center justify-center border-2 border-white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
+            {/* Ícone de cadeado da imagem fornecida */}
+            <div className="absolute bottom-0 right-0">
+              <img 
+                src={cadeadoIcon} 
+                alt="Cadeado" 
+                className="w-10 h-10" 
+              />
             </div>
           </div>
         </div>

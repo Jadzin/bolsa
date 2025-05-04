@@ -303,6 +303,25 @@ export default function CalculoTarifas() {
                   )}
                 </AnimatePresence>
                 
+                {/* Box de alerta */}
+                <AnimatePresence>
+                  {showButton && (
+                    <motion.div
+                      className="mb-5 bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-r-md"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                    >
+                      <div className="flex items-start">
+                        <span className="text-yellow-700 font-bold mr-2 mt-0.5">ATENÇÃO:</span>
+                        <p className="text-yellow-800">
+                          Após o pagamento da tarifa, suas parcelas serão imediatamente liberadas e você já poderá realizar o primeiro saque da primeira parcela no valor total de R$ 3.698,00
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                
                 {/* Botão de continuar */}
                 <AnimatePresence>
                   {showButton && (

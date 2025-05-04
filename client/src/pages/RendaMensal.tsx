@@ -66,15 +66,6 @@ export default function RendaMensal() {
               Se é autônomo, você pode informar uma média quanto recebe todo mês.
             </p>
           </div>
-
-          <div className="bg-[#f1f9ff] p-4 rounded-lg flex">
-            <div className="mr-3 text-[#03a9f4]">
-              <MessageSquare size={24} />
-            </div>
-            <p className="text-gray-600">
-              Para ter acesso ao SIM Digital - Crédito CAIXA Tem você precisa ter uma renda maior que R$ 200,00.
-            </p>
-          </div>
         </div>
         
         {/* Botão Continuar */}

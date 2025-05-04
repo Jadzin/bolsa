@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Checkbox } from '@/components/ui/checkbox';
-import caixaLogo from '@assets/2.PNG.webp';
-import { preserveUrlParams } from '../lib/utmHandler';
+import caixaLogo from '@assets/caixa tem logo.webp';
+import { prepareUrlWithParams } from '../lib/utmHandler';
 
 export default function Welcome() {
   const [, navigate] = useLocation();
   const [dontShowAgain, setDontShowAgain] = useState(false);
 
   const handleContinue = () => {
-    navigate(preserveUrlParams('/login'));
+    navigate(prepareUrlWithParams('/login'));
   };
 
   const handleNeedHelp = () => {

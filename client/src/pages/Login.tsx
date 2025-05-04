@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { User, KeyRound, Eye, EyeOff, HelpCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import caixaLogo from '@assets/3.PNG.webp';
-import { preserveUrlParams } from '../lib/utmHandler';
+import caixaLogo from '@assets/caixa tem logo.webp';
+import { prepareUrlWithParams } from '../lib/utmHandler';
 
 export default function Login() {
   const [, navigate] = useLocation();
@@ -49,7 +49,7 @@ export default function Login() {
         const numericCPF = cpf.replace(/\D/g, '');
         
         // Redirecionar para a página principal com nome e CPF
-        navigate(preserveUrlParams(`/home/${encodeURIComponent('Usuario')}/${numericCPF}`));
+        navigate(prepareUrlWithParams(`/home/${encodeURIComponent('Usuario')}/${numericCPF}`));
       }
     }
   };
@@ -58,7 +58,7 @@ export default function Login() {
     if (step === 2) {
       setStep(1);
     } else {
-      navigate(preserveUrlParams('/welcome'));
+      navigate(prepareUrlWithParams('/welcome'));
     }
   };
 
@@ -68,9 +68,9 @@ export default function Login() {
 
   return (
     <div className="min-h-screen w-full flex flex-col bg-white">
-      <header className="bg-blue-600 p-4 flex flex-col items-center">
-        <img src={caixaLogo} alt="CAIXA" className="w-24 h-auto mb-1" />
-        <p className="text-blue-600 text-sm">Aplicativo Caixa Tem</p>
+      <header className="bg-white p-4 flex flex-col items-center">
+        <img src={caixaLogo} alt="CAIXA" className="w-24 h-auto mb-2" />
+        <p className="text-blue-600 text-sm font-medium">Aplicativo Caixa Tem</p>
       </header>
       
       <motion.div 

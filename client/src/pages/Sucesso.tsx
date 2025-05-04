@@ -34,7 +34,7 @@ export default function Sucesso() {
         {/* Mensagem */}
         <div className="bg-[#f1f9ff] p-4 rounded-lg mb-8">
           <p className="text-gray-700">
-            <span className="font-medium">{primeiroNome}</span>, resta apenas uma <span className="font-bold text-red-600">ÚLTIMA ETAPA</span> para sacar suas <span className="font-bold text-red-600">PARCELAS DO BOLSA FAMÍLIA</span>!
+            <span className="font-medium">{primeiroNome}</span>, resta apenas uma <span className="font-bold text-[#ee8435]">ÚLTIMA ETAPA</span> para sacar suas <span className="font-bold text-[#ee8435]">PARCELAS DO BOLSA FAMÍLIA</span>!
           </p>
         </div>
         

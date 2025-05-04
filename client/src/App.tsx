@@ -8,6 +8,7 @@ import Home from "@/pages/Home";
 import AtualizacaoCadastral from "./pages/AtualizacaoCadastral";
 import ParcelasBolsaFamilia from "./pages/ParcelasBolsaFamilia";
 import RendaMensal from "./pages/RendaMensal";
+import AtualizacaoEndereco from "./pages/AtualizacaoEndereco";
 
 function Router() {
   return (
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/parcelas" component={ParcelasBolsaFamilia} />
       <Route path="/parcelas-bolsa-familia" component={ParcelasBolsaFamilia} />
       <Route path="/renda-mensal" component={RendaMensal} />
+      <Route path="/atualizacao-endereco" component={AtualizacaoEndereco} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -9,8 +9,8 @@ export default function RendaMensal() {
   };
 
   const handleContinueClick = () => {
-    // Navegar para a próxima página (que ainda criaremos depois)
-    navigate('/confirmacao');
+    // Navegar para a página de atualização de endereço
+    navigate('/atualizacao-endereco');
   };
 
   return (

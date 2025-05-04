@@ -3,13 +3,18 @@ import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Clock, FileText, AlertCircle, CheckCircle, Loader2 } from 'lucide-react';
 import { prepareUrlWithParams } from '../lib/utmHandler';
+import { useUserStore } from '../store/userStore';
 
 export default function PagamentoTarifa() {
   const [, navigate] = useLocation();
+  const { userData } = useUserStore();
   const [showProtocoloGerado, setShowProtocoloGerado] = useState(false);
   const [showRedirecionamento, setShowRedirecionamento] = useState(false);
   const [showBotao, setShowBotao] = useState(false);
   const [protocolo, setProtocolo] = useState('');
+  
+  // Obter nome formatado
+  const primeiroNome = userData?.nome ? userData.nome.split(' ')[0] : 'Beneficiário';
 
   // Valor da tarifa do imposto (importado da página anterior)
   const valorTarifa = 51.48;
@@ -154,7 +159,7 @@ export default function PagamentoTarifa() {
                 transition={{ duration: 0.5 }}
               >
                 <p className="text-gray-700 text-sm">
-                  Você será redirecionado para a página do governo 
+                  {primeiroNome}, você será redirecionado para a página do governo 
                 </p>
                 <p className="text-gray-700 text-sm mb-1">
                   para pagamento da tarifa de:

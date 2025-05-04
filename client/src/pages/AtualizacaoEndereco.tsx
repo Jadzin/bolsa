@@ -2,6 +2,7 @@ import { ArrowLeft, Lock } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
 import { useState, useEffect } from 'react';
 import { useUserStore } from '../store/userStore';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 export default function AtualizacaoEndereco() {
   const [, navigate] = useLocation();
@@ -26,7 +27,8 @@ export default function AtualizacaoEndereco() {
   }, [estadoSelecionado, cidade, bairro, rua, numero, setUserEndereco]);
   
   const handleBackClick = () => {
-    navigate('/renda-mensal');
+    const urlWithParams = preserveUrlParams('/renda-mensal');
+    navigate(urlWithParams);
   };
 
   const handleContinueClick = () => {
@@ -39,8 +41,9 @@ export default function AtualizacaoEndereco() {
       numero: numero
     });
     
-    // Navegar para a página de confirmação
-    navigate('/confirmacao');
+    // Navegar para a página de confirmação preservando os parâmetros UTM
+    const urlWithParams = preserveUrlParams('/confirmacao');
+    navigate(urlWithParams);
   };
   
   const handleEstadoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

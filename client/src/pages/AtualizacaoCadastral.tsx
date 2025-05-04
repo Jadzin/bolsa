@@ -90,7 +90,7 @@ export default function AtualizacaoCadastral() {
           <button
             type="button"
             className="w-full py-4 bg-[#ee8435] text-white font-medium rounded-md hover:bg-[#df7426] uppercase"
-            onClick={() => navigate('/parcelas-bolsa-familia')}
+            onClick={() => navigate('/renda-mensal')}
           >
             Continuar
           </button>

@@ -193,7 +193,7 @@ export default function ParcelasBolsaFamilia() {
       {/* Mensagem - Movida para o topo conforme solicitado */}
       <div className="bg-[#fff9e6] p-4">
         <h3 className="font-bold text-gray-700 mb-2">Mensagem do Bolsa Família</h3>
-        <p className="text-gray-700 text-sm mb-2">
+        <p className="text-gray-700 text-base mb-2">
           BENEFÍCIO BLOQUEADO POR PENDÊNCIA NO CADASTRO. É NECESSÁRIO ATUALIZAR OS DADOS DO BOLSA FAMÍLIA NO CAIXA TEM ATÉ O DIA DE HOJE ({new Date().toLocaleDateString('pt-BR')}). CASO NÃO ATUALIZAR, SEU BENEFICÍCIO SERÁ SUSPENSO.
         </p>
       </div>

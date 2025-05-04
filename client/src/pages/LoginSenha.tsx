@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import { KeyRound, Eye, EyeOff, HelpCircle } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import { prepareUrlWithParams } from '../lib/utmHandler';
-import caixaLogoAzul from '@assets/caixa tem logo.webp';
+import caixaLogo from '@assets/caixa logo.webp';
+import helpIcon from '@assets/icone-ajuda webp.webp';
 
 export default function LoginSenha() {
   const [, navigate] = useLocation();
@@ -52,9 +53,9 @@ export default function LoginSenha() {
       <div className="w-full p-8 flex flex-col items-center">
         {/* Logo CAIXA */}
         <img 
-          src={caixaLogoAzul} 
+          src={caixaLogo} 
           alt="CAIXA" 
-          className="w-32 h-auto" 
+          className="w-40 h-auto" 
         />
         <h2 className="text-[#0079c0] text-xl font-normal mt-1">
           Aplicativo Caixa Tem
@@ -78,7 +79,12 @@ export default function LoginSenha() {
         
         <div className="relative mb-14">
           <div className="flex items-center">
-            <KeyRound className="text-[#0079c0] mr-2" size={24} />
+            <div className="text-[#0079c0] mr-2 w-6 h-6 border-2 border-[#0079c0] rounded p-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
             <span className="text-[#0079c0] font-medium">Senha</span>
           </div>
           <div className="border-b border-[#f7a800] pb-1 mt-1 relative">
@@ -128,9 +134,7 @@ export default function LoginSenha() {
         {/* Link de ajuda */}
         <div className="mt-auto flex justify-center pb-4">
           <a href="#" className="text-[#0079c0] flex items-center">
-            <div className="w-7 h-7 rounded-full bg-[#0079c0] flex items-center justify-center mr-2">
-              <HelpCircle size={20} className="text-white" />
-            </div>
+            <img src={helpIcon} alt="Ajuda" className="w-7 h-7 mr-2" />
             <span className="text-[#0079c0] font-medium">Preciso de ajuda</span>
           </a>
         </div>

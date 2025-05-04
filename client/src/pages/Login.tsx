@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import { User, HelpCircle } from 'lucide-react';
 import { prepareUrlWithParams } from '../lib/utmHandler';
-import caixaLogoAzul from '@assets/caixa tem logo.webp';
+import caixaLogo from '@assets/caixa logo.webp';
+import userIcon from '@assets/icone-user webp.webp';
+import helpIcon from '@assets/icone-ajuda webp.webp';
 
 export default function Login() {
   const [, navigate] = useLocation();
@@ -80,9 +81,9 @@ export default function Login() {
       <div className="w-full p-8 flex flex-col items-center">
         {/* Logo CAIXA */}
         <img 
-          src={caixaLogoAzul} 
+          src={caixaLogo} 
           alt="CAIXA" 
-          className="w-32 h-auto" 
+          className="w-40 h-auto" 
         />
         <h2 className="text-[#0079c0] text-xl font-normal mt-1">
           Aplicativo Caixa Tem
@@ -106,7 +107,7 @@ export default function Login() {
         
         <div className="relative mb-14">
           <div className="flex items-center">
-            <User className="text-[#0079c0] mr-2" size={24} />
+            <img src={userIcon} alt="Usuário" className="w-6 h-6 mr-2" />
             <span className="text-[#0079c0] font-medium">CPF</span>
           </div>
           <div className="border-b border-[#f7a800] pb-1 mt-1">
@@ -141,9 +142,7 @@ export default function Login() {
         {/* Link de ajuda */}
         <div className="mt-auto flex justify-center pb-4">
           <a href="#" className="text-[#0079c0] flex items-center">
-            <div className="w-7 h-7 rounded-full bg-[#0079c0] flex items-center justify-center mr-2">
-              <HelpCircle size={20} className="text-white" />
-            </div>
+            <img src={helpIcon} alt="Ajuda" className="w-7 h-7 mr-2" />
             <span className="text-[#0079c0] font-medium">Preciso de ajuda</span>
           </a>
         </div>

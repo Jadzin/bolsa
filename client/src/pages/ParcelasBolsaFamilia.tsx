@@ -11,6 +11,7 @@ interface Parcela {
   validade: string;
   status: 'bloqueado' | 'pago' | 'pendente';
   iconeEhAlerta?: boolean;
+  referencia: string;
 }
 
 export default function ParcelasBolsaFamilia() {
@@ -29,43 +30,39 @@ export default function ParcelasBolsaFamilia() {
     const dataFormatada = hoje.toLocaleDateString('pt-BR');
 
     // Parcelas a serem liberadas (próximos 2 meses)
-    const validadeFutura = new Date(hoje.getTime() + 32 * 24 * 60 * 60 * 1000);
-    const diaFinal = Math.floor(Math.random() * 6) + 20;
-    const validadeFinal = new Date(anoAtual, validadeFutura.getMonth() + 4, diaFinal).toLocaleDateString('pt-BR');
-
     const parcelas = [
       {
-        mes: `${meses[mesAtualIndex]} DE ${anoAtual}`,
-        programa: 'PROG BOLSA FAMILIA',
+        mes: `PROG BOLSA FAMILIA`,
+        programa: `MAIO DE ${anoAtual}`,
         valor: 'R$ 1.298,00',
         validade: dataFormatada,
         status: 'bloqueado' as 'bloqueado',
-        iconeEhAlerta: true
+        iconeEhAlerta: true,
+        referencia: 'ATUAL'
       },
       {
-        mes: `${meses[(mesAtualIndex + 1) % 12]} DE ${anoAtual}`,
-        programa: 'PROG BOLSA FAMILIA',
+        mes: `PROG BOLSA FAMILIA`,
+        programa: `JUNHO DE ${anoAtual}`,
         valor: 'R$ 1.298,00',
-        validade: `${validadeFutura.toLocaleDateString('pt-BR')} à ${validadeFinal}`,
+        validade: '',
         status: 'bloqueado' as 'bloqueado',
-        iconeEhAlerta: true
+        iconeEhAlerta: true,
+        referencia: '06/2025'
       }
     ];
 
     // Demais parcelas (restante do ano)
     const parcelas2 = [];
     for (let i = mesAtualIndex + 2; i <= 11; i++) {
-      const diaInicio = Math.floor(Math.random() * 7) + 20;
-      const diaFim = Math.floor(Math.random() * 7) + 20;
-      const dataInicio = new Date(anoAtual, i, diaInicio);
-      const dataFim = new Date(anoAtual, i + 4, diaFim);
+      const mesNumero = (i + 1).toString().padStart(2, '0');
       parcelas2.push({
-        mes: `${meses[i]} DE ${anoAtual}`,
-        programa: 'PROG BOLSA FAMILIA',
+        mes: `PROG BOLSA FAMILIA`,
+        programa: `${meses[i]} DE ${anoAtual}`,
         valor: 'R$ 600,00',
-        validade: `${dataInicio.toLocaleDateString('pt-BR')} à ${dataFim.toLocaleDateString('pt-BR')}`,
-        status: 'pendente' as 'pendente',
-        iconeEhAlerta: true
+        validade: '',
+        status: 'bloqueado' as 'bloqueado',
+        iconeEhAlerta: true,
+        referencia: `${mesNumero}/${anoAtual}`
       });
     }
 
@@ -114,10 +111,10 @@ export default function ParcelasBolsaFamilia() {
             </div>
           </div>
           <div className="ml-6">
-            <div className="font-medium text-[#0b66a7] text-lg">{parcela.mes}</div>
-            <div className="font-medium text-gray-800">{parcela.programa}</div>
+            <div className="font-medium text-gray-800">{parcela.mes}</div>
+            <div className="font-medium text-[#0b66a7] text-lg">{parcela.programa}</div>
             <div className={`${statusInfo.cor} text-sm font-medium`}>
-              {statusInfo.texto} - Validade: {parcela.validade}
+              {statusInfo.texto} - Referência ({parcela.referencia})
             </div>
           </div>
         </div>

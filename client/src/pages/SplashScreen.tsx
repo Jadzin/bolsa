@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import caixaLogo from '@assets/caixa tem logo.webp';
+import caixaTemLogo from '@assets/logo-caixa-tem.png';
 import { prepareUrlWithParams } from '../lib/utmHandler';
 
 export default function SplashScreen() {
@@ -24,7 +24,7 @@ export default function SplashScreen() {
         transition={{ duration: 0.5 }}
         className="w-48 h-auto"
       >
-        <img src={caixaLogo} alt="CAIXA Tem" className="w-full h-auto" />
+        <img src={caixaTemLogo} alt="CAIXA Tem" className="w-full h-auto" />
       </motion.div>
     </div>
   );

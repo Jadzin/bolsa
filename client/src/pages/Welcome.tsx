@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Checkbox } from '@/components/ui/checkbox';
-import caixaLogo from '@assets/caixa tem logo.webp';
+import caixaTemLogo from '@assets/logo-caixa-tem.png';
 import { prepareUrlWithParams } from '../lib/utmHandler';
 
 export default function Welcome() {
@@ -27,7 +27,7 @@ export default function Welcome() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="w-48 h-auto"
         >
-          <img src={caixaLogo} alt="CAIXA Tem" className="w-full h-auto" />
+          <img src={caixaTemLogo} alt="CAIXA Tem" className="w-full h-auto" />
         </motion.div>
       </div>
       

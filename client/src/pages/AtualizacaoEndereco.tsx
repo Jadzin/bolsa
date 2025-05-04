@@ -1,18 +1,45 @@
 import { ArrowLeft, Lock } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useUserStore } from '../store/userStore';
 
 export default function AtualizacaoEndereco() {
   const [, navigate] = useLocation();
-  const [estadoSelecionado, setEstadoSelecionado] = useState('');
-  const [cidade, setCidade] = useState('');
+  const { userData, setUserEndereco } = useUserStore();
+  
+  // Estados para os campos do formulário
+  const [estadoSelecionado, setEstadoSelecionado] = useState(userData.endereco.estado || '');
+  const [cidade, setCidade] = useState(userData.endereco.cidade || '');
+  const [bairro, setBairro] = useState(userData.endereco.bairro || '');
+  const [rua, setRua] = useState(userData.endereco.rua || '');
+  const [numero, setNumero] = useState(userData.endereco.numero || '');
+  
+  // Salvar valores no store ao mudar
+  useEffect(() => {
+    setUserEndereco({
+      estado: estadoSelecionado,
+      cidade: cidade,
+      bairro: bairro,
+      rua: rua,
+      numero: numero
+    });
+  }, [estadoSelecionado, cidade, bairro, rua, numero, setUserEndereco]);
   
   const handleBackClick = () => {
     navigate('/renda-mensal');
   };
 
   const handleContinueClick = () => {
-    // Navegar para a próxima página (que ainda criaremos depois)
+    // Salvar dados de endereço no store
+    setUserEndereco({
+      estado: estadoSelecionado,
+      cidade: cidade,
+      bairro: bairro,
+      rua: rua,
+      numero: numero
+    });
+    
+    // Navegar para a página de confirmação
     navigate('/confirmacao');
   };
   
@@ -90,6 +117,8 @@ export default function AtualizacaoEndereco() {
               type="text" 
               className="w-full p-4 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0066b3]"
               placeholder="Seu bairro"
+              value={bairro}
+              onChange={(e) => setBairro(e.target.value)}
             />
           </div>
 
@@ -100,6 +129,8 @@ export default function AtualizacaoEndereco() {
               type="text" 
               className="w-full p-4 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0066b3]"
               placeholder="Nome da rua"
+              value={rua}
+              onChange={(e) => setRua(e.target.value)}
             />
           </div>
 
@@ -110,6 +141,8 @@ export default function AtualizacaoEndereco() {
               type="text" 
               className="w-full p-4 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0066b3]"
               placeholder="Número"
+              value={numero}
+              onChange={(e) => setNumero(e.target.value)}
             />
           </div>
         </div>

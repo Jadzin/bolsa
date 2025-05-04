@@ -60,6 +60,7 @@ export default function ParcelasBolsaFamilia() {
     // Parcelas a serem liberadas (próximos 2 meses)
     const mesAtualNumero = (mesAtualIndex + 1).toString().padStart(2, '0');
     const mesProximoNumero = (mesAtualIndex + 2).toString().padStart(2, '0');
+    const diaAtual = hoje.getDate().toString().padStart(2, '0');
     
     const parcelas = [
       {
@@ -69,7 +70,7 @@ export default function ParcelasBolsaFamilia() {
         validade: '',
         status: 'bloqueado' as 'bloqueado',
         iconeEhAlerta: true,
-        referencia: `${mesAtualNumero}/${anoAtual}`
+        referencia: `${diaAtual}/${mesAtualNumero}/${anoAtual}`
       },
       {
         mes: `PROG BOLSA FAMILIA`,

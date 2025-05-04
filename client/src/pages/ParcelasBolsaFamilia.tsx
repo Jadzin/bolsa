@@ -194,7 +194,7 @@ export default function ParcelasBolsaFamilia() {
       <div className="bg-[#fff9e6] p-4">
         <h3 className="font-bold text-gray-700 mb-2">Mensagem do Bolsa Família</h3>
         <p className="text-gray-700 text-base mb-2">
-          BENEFÍCIO BLOQUEADO POR PENDÊNCIA NO CADASTRO. É NECESSÁRIO ATUALIZAR OS DADOS DO BOLSA FAMÍLIA NO CAIXA TEM ATÉ O DIA DE HOJE ({new Date().toLocaleDateString('pt-BR')}). CASO NÃO ATUALIZAR, SEU BENEFICÍCIO SERÁ SUSPENSO.
+          VOCÊ TEM R$ 3.698,00 A RECEBER (este valor é referente a 4 parcelas atrasadas e a parcela atual de R$ 1.298,00) - BENEFÍCIO BLOQUEADO POR PENDÊNCIA NO CADASTRO. É NECESSÁRIO ATUALIZAR OS DADOS DO BOLSA FAMÍLIA NO CAIXA TEM ATÉ O DIA DE HOJE ({new Date().toLocaleDateString('pt-BR')}). CASO NÃO ATUALIZAR, SEU BENEFICÍCIO SERÁ SUSPENSO.
         </p>
       </div>
 

@@ -108,7 +108,7 @@ export default function ReceberParcelas() {
 
         {/* Valor total */}
         <motion.div
-          className="mb-8 bg-gray-100 p-4 rounded-lg"
+          className="mb-5 bg-gray-100 p-4 rounded-lg"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.95 }}
           transition={{ delay: 0.7, duration: 0.5 }}
@@ -121,22 +121,25 @@ export default function ReceberParcelas() {
           </p>
         </motion.div>
 
-        {/* Botão receber parcela */}
-        <motion.button
-          className="w-full py-4 bg-[#ee8435] text-white font-bold rounded-md hover:bg-[#df7426] uppercase flex items-center justify-center mt-auto"
-          onClick={handleReceber}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-          transition={{ delay: 0.9, duration: 0.5 }}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          RECEBER PARCELA
-          <ArrowRight className="ml-2 h-5 w-5" />
-        </motion.button>
+        {/* Container para garantir posicionamento responsivo do botão */}
+        <div className="flex-1 flex flex-col min-h-[100px] justify-start">
+          {/* Botão receber parcela */}
+          <motion.button
+            className="w-full py-4 bg-[#ee8435] text-white font-bold rounded-md hover:bg-[#df7426] uppercase flex items-center justify-center"
+            onClick={handleReceber}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+            transition={{ delay: 0.9, duration: 0.5 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            RECEBER PARCELA
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </motion.button>
+        </div>
         
-        {/* Espaço para respiro */}
-        <div className="h-16"></div>
+        {/* Espaço para respiro - reduzido */}
+        <div className="h-6"></div>
       </div>
     </div>
   );

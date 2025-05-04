@@ -19,6 +19,7 @@ import PagamentoTarifa from "./pages/PagamentoTarifa";
 import SplashScreen from "./pages/SplashScreen";
 import Welcome from "./pages/Welcome";
 import Login from "./pages/Login";
+import LoginSenha from "./pages/LoginSenha";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/" component={SplashScreen} />
       <Route path="/welcome" component={Welcome} />
       <Route path="/login" component={Login} />
+      <Route path="/login-senha" component={LoginSenha} />
       
       {/* Página principal e outras rotas */}
       <Route path="/home" component={Home} />

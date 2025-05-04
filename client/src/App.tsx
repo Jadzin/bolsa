@@ -16,7 +16,6 @@ import TarifaGoverno from "./pages/TarifaGoverno";
 import ReceberParcelas from "./pages/ReceberParcelas";
 import CalculoTarifas from "./pages/CalculoTarifas";
 import PagamentoTarifa from "./pages/PagamentoTarifa";
-import CheckoutPix from "./pages/CheckoutPix";
 
 function Router() {
   return (
@@ -36,7 +35,6 @@ function Router() {
       <Route path="/receber-parcelas" component={ReceberParcelas} />
       <Route path="/calculo-tarifas" component={CalculoTarifas} />
       <Route path="/pagamento-tarifa" component={PagamentoTarifa} />
-      <Route path="/checkout-pix" component={CheckoutPix} />
       
       {/* Mantenha a rota sucesso, mas usamos ela apenas para redirecionamento */}
       <Route path="/sucesso">

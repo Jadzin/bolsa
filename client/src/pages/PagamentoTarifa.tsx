@@ -59,8 +59,8 @@ export default function PagamentoTarifa() {
   }, []);
 
   const handleProsseguir = () => {
-    // Redireciona para a página de checkout PIX
-    navigate('/checkout-pix');
+    // Redireciona para a página inicial após pagamento
+    navigate('/sucesso');
   };
 
   return (

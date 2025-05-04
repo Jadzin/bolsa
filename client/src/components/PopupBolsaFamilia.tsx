@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
 import { Lock } from 'lucide-react';
 import cadeadoIcon from '@assets/cadeado-webp.webp';
+import { useUserStore } from '../store/userStore';
+import { consultarCpf } from '../services/cpfService';
 
 interface PopupBolsaFamiliaProps {
   nome?: string;
@@ -10,10 +12,44 @@ interface PopupBolsaFamiliaProps {
 
 export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [, navigate] = useLocation();
+  const { setUserData } = useUserStore();
 
+  // Efeito para buscar dados do CPF quando fornecido
   useEffect(() => {
-    // Mostrar o popup após 2 segundos
+    if (cpf) {
+      const fetchUserData = async () => {
+        setLoading(true);
+        
+        try {
+          // Limpar o CPF (remover caracteres não numéricos)
+          const numericCPF = cpf.replace(/\D/g, '');
+          
+          // Consultar a API
+          const data = await consultarCpf(numericCPF);
+          
+          if (data) {
+            // Salvar os dados do usuário no store
+            setUserData({
+              cpf: numericCPF,
+              nome: data.nome || nome || '',
+              nascimento: data.data_nascimento || '',
+            });
+          }
+        } catch (error) {
+          console.error('Erro ao buscar dados:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      fetchUserData();
+    }
+  }, [cpf, nome, setUserData]);
+  
+  // Mostrar o popup após 2 segundos
+  useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 2000);

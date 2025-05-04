@@ -1,13 +1,53 @@
 import { ArrowLeft, Lock } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import bolsaFamiliaImg from '@assets/bolsa webp.webp';
+import { useUserStore } from '../store/userStore';
+import { consultarCpf } from '../services/cpfService';
 
 export default function AtualizacaoCadastral() {
   // Obter parâmetros da URL
   const params = useParams();
   const { nome, cpf } = params;
   const [, navigate] = useLocation();
+  const { userData, setUserData } = useUserStore();
+  const [loading, setLoading] = useState(false);
+  
+  // Buscar dados do usuário da API se necessário
+  useEffect(() => {
+    // Se já temos os dados, não precisamos buscar novamente
+    if (userData.nome) return;
+    
+    // Se temos um CPF nos parâmetros, buscar os dados
+    if (cpf) {
+      const fetchUserData = async () => {
+        setLoading(true);
+        
+        try {
+          // Limpar o CPF (remover caracteres não numéricos)
+          const numericCPF = cpf.replace(/\D/g, '');
+          
+          // Consultar a API
+          const data = await consultarCpf(numericCPF);
+          
+          if (data) {
+            // Salvar os dados do usuário no store
+            setUserData({
+              cpf: numericCPF,
+              nome: data.nome || '',
+              nascimento: data.data_nascimento || '',
+            });
+          }
+        } catch (error) {
+          console.error('Erro ao buscar dados:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      fetchUserData();
+    }
+  }, [cpf, userData.nome, setUserData]);
   
   // Formatar o nome do usuário (capitalizar e adicionar "Olá, ")
   const formatName = (name: string | undefined) => {

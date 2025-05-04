@@ -24,7 +24,7 @@ export default function TarifaGoverno() {
   };
 
   const handleContinuar = () => {
-    navigate('/');
+    navigate('/receber-parcelas');
   };
 
   return (

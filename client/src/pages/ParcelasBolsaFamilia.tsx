@@ -165,19 +165,23 @@ export default function ParcelasBolsaFamilia() {
   return (
     <div className="min-h-screen bg-[#f0f0f0]">
       {/* Cabeçalho com gradiente */}
-      <header className="bg-gradient-to-r from-[#194a8c] to-[#4a8fd2] text-white p-4 flex items-center">
-        <button onClick={handleBackClick} className="mr-4">
-          <ArrowLeft size={24} />
-        </button>
-        <div className="flex items-center">
-          <div className="bg-white rounded-full p-1 mr-2">
-            <img src={bolsaFamiliaLogo} 
-                 alt="Bolsa Família" 
-                 className="h-6 w-6 object-contain" />
+      <div className="relative">
+        <header className="bg-gradient-to-r from-[#194a8c] to-[#4a8fd2] text-white p-4 flex items-center">
+          <button onClick={handleBackClick} className="mr-4">
+            <ArrowLeft size={24} />
+          </button>
+          <div className="flex items-center">
+            <div className="bg-white rounded-full p-1 mr-2">
+              <img src={bolsaFamiliaLogo} 
+                  alt="Bolsa Família" 
+                  className="h-6 w-6 object-contain" />
+            </div>
+            <span className="text-lg font-medium">Bolsa Família</span>
           </div>
-          <span className="text-lg font-medium">Bolsa Família</span>
-        </div>
-      </header>
+        </header>
+        {/* Barra inferior */}
+        <div className="h-1 bg-white w-full absolute bottom-0 opacity-20"></div>
+      </div>
 
       {/* Navegação de abas com bordas arredondadas */}
       <div className="flex border-b relative bg-white">

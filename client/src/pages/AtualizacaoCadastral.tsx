@@ -51,17 +51,21 @@ export default function AtualizacaoCadastral() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Cabeçalho com gradiente azul */}
-      <header className="bg-gradient-to-r from-[#0066b3] to-[#03a9f4] text-white p-4 flex items-center">
-        <button onClick={handleBackClick} className="mr-4">
-          <ArrowLeft size={24} />
-        </button>
-        <div className="flex items-center">
-          <div className="bg-white rounded-full p-1 mr-2 flex items-center justify-center">
-            <Lock size={20} color="#0066b3" />
+      <div className="relative">
+        <header className="bg-gradient-to-r from-[#0066b3] to-[#03a9f4] text-white p-4 flex items-center">
+          <button onClick={handleBackClick} className="mr-4">
+            <ArrowLeft size={24} />
+          </button>
+          <div className="flex items-center">
+            <div className="bg-white rounded-full p-1 mr-2 flex items-center justify-center">
+              <Lock size={20} color="#0066b3" />
+            </div>
+            <span className="text-lg font-medium">Atualização cadastral</span>
           </div>
-          <span className="text-lg font-medium">Atualização cadastral</span>
-        </div>
-      </header>
+        </header>
+        {/* Barra inferior */}
+        <div className="h-1 bg-white w-full absolute bottom-0 opacity-20"></div>
+      </div>
 
       <div className="flex-1 p-6">
         <div className="flex justify-center mb-6">

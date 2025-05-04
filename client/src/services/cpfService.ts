@@ -72,18 +72,25 @@ export function formatarCpf(cpf: string): string {
 }
 
 /**
- * Formata uma data no formato ISO (YYYY-MM-DD) para DD/MM/YYYY
- * @param data Data no formato ISO
+ * Formata uma data para o formato DD/MM/YYYY
+ * @param data Data (aceita tanto formato ISO YYYY-MM-DD quanto DD/MM/YYYY)
  * @returns Data formatada ou string vazia se inválida
  */
 export function formatarData(data?: string): string {
   if (!data) return '';
   
   try {
+    // Verificar se a data já está no formato DD/MM/YYYY
+    if (data.includes('/') && data.match(/^\d{2}\/\d{2}\/\d{4}$/)) {
+      return data;
+    }
+    
+    // Verificar se a data está no formato ISO (YYYY-MM-DD)
     const partes = data.split('-');
     if (partes.length === 3) {
       return `${partes[2]}/${partes[1]}/${partes[0]}`;
     }
+    
     return data;
   } catch (error) {
     return data || '';

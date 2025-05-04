@@ -61,9 +61,9 @@ export default function TarifaGoverno() {
           </p>
         </motion.div>
 
-        {/* Box laranja com aviso (com opacidade reduzida) */}
+        {/* Box amarelo com aviso (com opacidade reduzida) */}
         <motion.div 
-          className="bg-[#ff8a33] bg-opacity-85 text-white p-4 rounded-lg mb-6 shadow-md"
+          className="bg-yellow-400 bg-opacity-70 text-black p-4 rounded-lg mb-6 shadow-md"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}

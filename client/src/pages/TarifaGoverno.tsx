@@ -3,7 +3,7 @@ import { useLocation } from 'wouter';
 import { ArrowRight, HelpCircle, AlertTriangle } from 'lucide-react';
 import { useUserStore } from '../store/userStore';
 import { motion } from 'framer-motion';
-import headerImage from '../assets/head.png';
+import headerImage from '../assets/head.webp';
 
 export default function TarifaGoverno() {
   const [, navigate] = useLocation();

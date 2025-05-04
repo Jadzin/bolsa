@@ -1,5 +1,5 @@
 import { Eye, Bell, PlaySquare, Search, MoreVertical, ChevronDown, Share2 } from 'lucide-react';
-import caixaTemLogo from '../assets/caixa tem logo.png';
+import caixaTemLogo from '../assets/caixa tem logo.webp';
 
 interface HeaderProps {
   userName: string;

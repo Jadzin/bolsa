@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import bolsaFamiliaImg from '@assets/bolsa webp.webp';
 import { useUserStore } from '../store/userStore';
 import { consultarCpf } from '../services/cpfService';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 export default function AtualizacaoCadastral() {
   // Obter parâmetros da URL

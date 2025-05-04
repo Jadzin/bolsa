@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import cadeadoIcon from '@assets/cadeado-webp.webp';
 import { useUserStore } from '../store/userStore';
 import { consultarCpf } from '../services/cpfService';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 interface PopupBolsaFamiliaProps {
   nome?: string;
@@ -59,8 +60,9 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
   }, []);
 
   const handleUpdateClick = () => {
-    // Navegar para a página de parcelas do Bolsa Família
-    navigate('/parcelas-bolsa-familia');
+    // Navegar para a página de parcelas do Bolsa Família, preservando os parâmetros UTM
+    const urlWithParams = preserveUrlParams('/parcelas-bolsa-familia');
+    navigate(urlWithParams);
   };
 
   return (

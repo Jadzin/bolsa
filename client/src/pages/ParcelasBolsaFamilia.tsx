@@ -2,6 +2,7 @@ import { useLocation } from 'wouter';
 import { ArrowLeft, AlertTriangle, AlertCircle } from 'lucide-react';
 import bolsaFamiliaLogo from '../assets/bolsa-familia-logo.webp';
 import { useEffect, useState } from 'react';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 // Tipo para as parcelas
 interface Parcela {
@@ -111,11 +112,13 @@ export default function ParcelasBolsaFamilia() {
   }, []);
 
   const handleBackClick = () => {
-    navigate('/');
+    const urlWithParams = preserveUrlParams('/');
+    navigate(urlWithParams);
   };
 
   const handleUpdateClick = () => {
-    navigate('/atualizacao-cadastral');
+    const urlWithParams = preserveUrlParams('/atualizacao-cadastral');
+    navigate(urlWithParams);
   };
 
 

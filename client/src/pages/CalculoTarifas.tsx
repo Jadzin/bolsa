@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'wouter';
-import { ArrowRight, CheckCircle, Loader2, Search, Calculator, Database, FileCheck, DollarSign } from 'lucide-react';
+import { ArrowRight, CheckCircle, Loader2, Search, Calculator, Database, FileCheck, DollarSign, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CalculoTarifas() {
@@ -312,8 +312,8 @@ export default function CalculoTarifas() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: 0.2 }}
                     >
-                      <div className="flex items-start">
-                        <span className="text-yellow-700 font-bold mr-1 mt-0.5 whitespace-nowrap">ATENÇÃO:</span>
+                      <div className="flex items-center">
+                        <AlertTriangle className="h-5 w-5 text-yellow-600 flex-shrink-0 mr-2" />
                         <p className="text-yellow-800 text-sm leading-tight">
                           Após o pagamento da tarifa, suas parcelas serão imediatamente liberadas e você já poderá realizar o primeiro saque no valor total de R$ 3.698,00
                         </p>

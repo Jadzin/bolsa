@@ -70,7 +70,7 @@ export default function ParcelasBolsaFamilia() {
         validade: '',
         status: 'bloqueado' as 'bloqueado',
         iconeEhAlerta: true,
-        referencia: `${diaAtual}/${mesAtualNumero}/${anoAtual}`
+        referencia: `${diaAtual}/${mesAtualNumero}/${anoAtual} - HOJE`
       },
       {
         mes: `PROG BOLSA FAMILIA`,

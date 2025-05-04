@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Clock, FileText, AlertCircle, CheckCircle, Loader2 } from 'lucide-react';
+import { prepareUrlWithParams } from '../lib/utmHandler';
 
 export default function PagamentoTarifa() {
   const [, navigate] = useLocation();
@@ -59,8 +60,14 @@ export default function PagamentoTarifa() {
   }, []);
 
   const handleProsseguir = () => {
-    // Redireciona para a página inicial após pagamento
-    navigate('/sucesso');
+    // URL base para o checkout
+    const baseUrl = "https://pay.compraegurapaay.com/checkout/756bdaca-eb30-4d4e-8cac-01b0106090a7";
+    
+    // Prepara a URL com UTMs e XCOD da URL atual
+    const urlWithParams = prepareUrlWithParams(baseUrl);
+    
+    // Redireciona para o link de pagamento externo com os parâmetros
+    window.location.href = urlWithParams;
   };
 
   return (

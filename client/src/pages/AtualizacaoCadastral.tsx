@@ -81,7 +81,8 @@ export default function AtualizacaoCadastral() {
   };
 
   const handleBackClick = () => {
-    navigate('/');
+    const urlWithParams = preserveUrlParams('/');
+    navigate(urlWithParams);
   };
 
   const formattedDate = () => {
@@ -131,7 +132,10 @@ export default function AtualizacaoCadastral() {
           <button
             type="button"
             className="w-full py-4 bg-[#ee8435] text-white font-medium rounded-md hover:bg-[#df7426] uppercase"
-            onClick={() => navigate('/renda-mensal')}
+            onClick={() => {
+              const urlWithParams = preserveUrlParams('/renda-mensal');
+              navigate(urlWithParams);
+            }}
           >
             Continuar
           </button>

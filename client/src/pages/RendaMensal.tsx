@@ -2,6 +2,7 @@ import { ArrowLeft, Lock, MessageSquare } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
 import { useState, useEffect } from 'react';
 import { useUserStore } from '../store/userStore';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 export default function RendaMensal() {
   const [, navigate] = useLocation();
@@ -21,7 +22,8 @@ export default function RendaMensal() {
   }, [userData.renda]);
   
   const handleBackClick = () => {
-    navigate('/atualizacao-cadastral');
+    const urlWithParams = preserveUrlParams('/atualizacao-cadastral');
+    navigate(urlWithParams);
   };
 
   const handleContinueClick = () => {
@@ -33,7 +35,8 @@ export default function RendaMensal() {
     }
     
     // Navegar para a página de atualização de endereço
-    navigate('/atualizacao-endereco');
+    const urlWithParams = preserveUrlParams('/atualizacao-endereco');
+    navigate(urlWithParams);
   };
   
   const formatarMoeda = (valor: string) => {

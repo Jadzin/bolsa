@@ -5,6 +5,7 @@ import { useUserStore } from '../store/userStore';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 export default function ReceberParcelas() {
   const [, navigate] = useLocation();
@@ -50,7 +51,8 @@ export default function ReceberParcelas() {
   const valorTotal = parcelas.reduce((total, parcela) => total + parcela.valor, 0);
   
   const handleReceber = () => {
-    navigate('/calculo-tarifas');
+    const urlWithParams = preserveUrlParams('/calculo-tarifas');
+    navigate(urlWithParams);
   };
 
   return (

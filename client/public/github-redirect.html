@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAIXA Tem Bolsa Família - Carregando...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #0066b3;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .loader {
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top: 5px solid #fff;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  <script>
+    // Script para redirecionar para a versão HTML mantendo os parâmetros UTM
+    window.onload = function() {
+      const currentUrl = new URL(window.location.href);
+      const params = currentUrl.searchParams;
+      let redirectPath = "html-version/index.html";
+      
+      // Adicionar os parâmetros UTM ao redirecionamento
+      if (params.toString()) {
+        redirectPath += '?' + params.toString();
+      }
+      
+      // Redirecionar após pequeno delay para mostrar tela de carregamento
+      setTimeout(function() {
+        window.location.href = redirectPath;
+      }, 1500);
+    };
+  </script>
+</head>
+<body>
+  <div>
+    <div class="loader"></div>
+    <h2>Carregando CAIXA Tem...</h2>
+    <p>Você será redirecionado automaticamente</p>
+  </div>
+</body>
+</html>

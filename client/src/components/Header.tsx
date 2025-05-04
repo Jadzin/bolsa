@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Eye, EyeOff, Bell, PlaySquare, Search, MoreVertical, ChevronDown, Share2 } from 'lucide-react';
+import { Eye, Bell, PlaySquare, Search, MoreVertical, ChevronDown, Share2 } from 'lucide-react';
 import caixaTemLogo from '../assets/caixa tem logo.png';
 
 interface HeaderProps {
@@ -8,11 +7,6 @@ interface HeaderProps {
 }
 
 export function Header({ userName, userId }: HeaderProps) {
-  const [showBalance, setShowBalance] = useState(false);
-
-  const toggleBalance = () => {
-    setShowBalance(!showBalance);
-  };
 
   return (
     <header className="header-gradient text-white">
@@ -72,27 +66,18 @@ export function Header({ userName, userId }: HeaderProps) {
       {/* Balance Display - Centered */}
       <div className="flex justify-center pb-6">
         <div className="flex items-center">
-          {showBalance ? (
-            <div className="flex items-center">
-              <span className="text-white text-2xl font-bold mr-4">R$ 5.129,57</span>
-              <button onClick={toggleBalance} className="text-white">
+          <div className="flex items-center">
+            <span className="text-xl mr-3 font-medium">R$</span>
+            <div className="bg-[#a9cced] text-[#1a478c] rounded px-6 py-1 flex items-center shadow-sm h-7">
+              {/* Botão vazio, sem texto */}
+              <span className="w-16"></span>
+            </div>
+            <span className="ml-3 text-white">
+              <button className="eye-slash">
                 <Eye className="h-6 w-6" />
               </button>
-            </div>
-          ) : (
-            <div className="flex items-center">
-              <span className="text-xl mr-3 font-medium">R$</span>
-              <div className="bg-[#a9cced] text-[#1a478c] rounded px-6 py-1 flex items-center shadow-sm h-7">
-                {/* Botão vazio, sem texto */}
-                <span className="w-16"></span>
-              </div>
-              <span className="ml-3 text-white">
-                <button onClick={toggleBalance} className="eye-slash">
-                  <Eye className="h-6 w-6" />
-                </button>
-              </span>
-            </div>
-          )}
+            </span>
+          </div>
         </div>
       </div>
     </header>

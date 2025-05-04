@@ -16,6 +16,7 @@ interface Parcela {
 
 export default function ParcelasBolsaFamilia() {
   const [, navigate] = useLocation();
+  const [parcelasAtrasadas, setParcelasAtrasadas] = useState<Parcela[]>([]);
   const [parcelasALiberar, setParcelasALiberar] = useState<Parcela[]>([]);
   const [demaisParcelas, setDemaisParcelas] = useState<Parcela[]>([]);
   const [dataAtualizada, setDataAtualizada] = useState<string>('');
@@ -29,6 +30,33 @@ export default function ParcelasBolsaFamilia() {
 
     const dataFormatada = hoje.toLocaleDateString('pt-BR');
 
+    // Parcelas atrasadas (4 meses anteriores)
+    const parcelasAnteriores = [];
+    const anoAnterior = mesAtualIndex >= 4 ? anoAtual : anoAtual - 1;
+    
+    for (let i = 1; i <= 4; i++) {
+      // Calcula o índice do mês anterior (considerando possível mudança de ano)
+      let mesIndice = mesAtualIndex - i;
+      let anoRef = anoAtual;
+      
+      if (mesIndice < 0) {
+        mesIndice = 12 + mesIndice; // Ajusta para o ano anterior
+        anoRef = anoAtual - 1;
+      }
+      
+      const mesNumero = (mesIndice + 1).toString().padStart(2, '0');
+      
+      parcelasAnteriores.push({
+        mes: `PROG BOLSA FAMILIA`,
+        programa: ``,
+        valor: 'R$ 600,00',
+        validade: '',
+        status: 'bloqueado' as 'bloqueado',
+        iconeEhAlerta: true,
+        referencia: `${mesNumero}/${anoRef}`
+      });
+    }
+    
     // Parcelas a serem liberadas (próximos 2 meses)
     const mesAtualNumero = (mesAtualIndex + 1).toString().padStart(2, '0');
     const mesProximoNumero = (mesAtualIndex + 2).toString().padStart(2, '0');
@@ -69,6 +97,7 @@ export default function ParcelasBolsaFamilia() {
       });
     }
 
+    setParcelasAtrasadas(parcelasAnteriores);
     setParcelasALiberar(parcelas);
     setDemaisParcelas(parcelas2);
 
@@ -178,8 +207,18 @@ export default function ParcelasBolsaFamilia() {
         </button>
       </div>
 
-      {/* Seção: Parcelas a serem liberadas */}
+      {/* Seção: Parcelas Atrasadas */}
       <div className="bg-white p-4">
+        <h3 className="font-bold text-[#0b66a7] text-lg mb-2">PARCELAS ATRASADAS</h3>
+        <div className="flex flex-col">
+          {parcelasAtrasadas.map((parcela, index) => (
+            <div key={index}>{renderParcela(parcela)}</div>
+          ))}
+        </div>
+      </div>
+
+      {/* Seção: Parcelas a serem liberadas */}
+      <div className="bg-white p-4 mt-4">
         <h3 className="font-bold text-[#0b66a7] text-lg mb-2">PARCELAS A SEREM LIBERADAS</h3>
         <div className="flex flex-col">
           {parcelasALiberar.map((parcela, index) => (

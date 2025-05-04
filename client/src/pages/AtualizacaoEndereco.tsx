@@ -1,8 +1,11 @@
 import { ArrowLeft, Lock } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
+import { useState } from 'react';
 
 export default function AtualizacaoEndereco() {
   const [, navigate] = useLocation();
+  const [estadoSelecionado, setEstadoSelecionado] = useState('');
+  const [cidadeSelecionada, setCidadeSelecionada] = useState('');
   
   const handleBackClick = () => {
     navigate('/renda-mensal');
@@ -11,6 +14,12 @@ export default function AtualizacaoEndereco() {
   const handleContinueClick = () => {
     // Navegar para a próxima página (que ainda criaremos depois)
     navigate('/confirmacao');
+  };
+  
+  // Resetar a cidade selecionada quando o estado mudar
+  const handleEstadoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setEstadoSelecionado(e.target.value);
+    setCidadeSelecionada('');
   };
 
   // Lista de estados brasileiros com nomes completos
@@ -23,11 +32,36 @@ export default function AtualizacaoEndereco() {
     "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"
   ];
 
-  // Algumas cidades - numa aplicação real, isso seria carregado dinamicamente com base no estado selecionado
-  const cidades = [
-    "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Salvador", 
-    "Brasília", "Fortaleza", "Recife", "Porto Alegre", "Manaus", "Curitiba"
-  ];
+  // Mapeamento de estados para cidades (versão simplificada para demonstração)
+  const cidadesPorEstado: Record<string, string[]> = {
+    "Acre": ["Rio Branco", "Cruzeiro do Sul", "Sena Madureira"],
+    "Alagoas": ["Maceió", "Arapiraca", "Palmeira dos Índios"],
+    "Amapá": ["Macapá", "Santana", "Laranjal do Jari"],
+    "Amazonas": ["Manaus", "Parintins", "Itacoatiara"],
+    "Bahia": ["Salvador", "Feira de Santana", "Vitória da Conquista"],
+    "Ceará": ["Fortaleza", "Caucaia", "Juazeiro do Norte"],
+    "Distrito Federal": ["Brasília", "Ceilândia", "Taguatinga"],
+    "Espírito Santo": ["Vitória", "Vila Velha", "Serra"],
+    "Goiás": ["Goiânia", "Aparecida de Goiânia", "Anápolis"],
+    "Maranhão": ["São Luís", "Imperatriz", "Timon"],
+    "Mato Grosso": ["Cuiabá", "Várzea Grande", "Rondonópolis"],
+    "Mato Grosso do Sul": ["Campo Grande", "Dourados", "Três Lagoas"],
+    "Minas Gerais": ["Belo Horizonte", "Uberlândia", "Contagem"],
+    "Pará": ["Belém", "Ananindeua", "Santarém"],
+    "Paraíba": ["João Pessoa", "Campina Grande", "Santa Rita"],
+    "Paraná": ["Curitiba", "Londrina", "Maringá"],
+    "Pernambuco": ["Recife", "Jaboatão dos Guararapes", "Olinda"],
+    "Piauí": ["Teresina", "Parnaíba", "Picos"],
+    "Rio de Janeiro": ["Rio de Janeiro", "São Gonçalo", "Duque de Caxias"],
+    "Rio Grande do Norte": ["Natal", "Mossoró", "Parnamirim"],
+    "Rio Grande do Sul": ["Porto Alegre", "Caxias do Sul", "Pelotas"],
+    "Rondônia": ["Porto Velho", "Ji-Paraná", "Ariquemes"],
+    "Roraima": ["Boa Vista", "Rorainópolis", "Caracaraí"],
+    "Santa Catarina": ["Florianópolis", "Joinville", "Blumenau"],
+    "São Paulo": ["São Paulo", "Guarulhos", "Campinas"],
+    "Sergipe": ["Aracaju", "Nossa Senhora do Socorro", "Lagarto"],
+    "Tocantins": ["Palmas", "Araguaína", "Gurupi"]
+  };
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -60,6 +94,8 @@ export default function AtualizacaoEndereco() {
             <label className="block text-gray-700 mb-2">Estado:</label>
             <select 
               className="w-full p-4 border border-gray-300 rounded-lg text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#0066b3]"
+              value={estadoSelecionado}
+              onChange={handleEstadoChange}
             >
               <option value="">Selecione o estado</option>
               {estados.map(estado => (
@@ -73,11 +109,21 @@ export default function AtualizacaoEndereco() {
             <label className="block text-gray-700 mb-2">Cidade:</label>
             <select 
               className="w-full p-4 border border-gray-300 rounded-lg text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#0066b3]"
+              disabled={!estadoSelecionado}
+              value={cidadeSelecionada}
+              onChange={(e) => setCidadeSelecionada(e.target.value)}
             >
-              <option value="">Selecione a cidade</option>
-              {cidades.map(cidade => (
-                <option key={cidade} value={cidade}>{cidade}</option>
-              ))}
+              <option value="">
+                {!estadoSelecionado 
+                  ? "Selecione um estado primeiro" 
+                  : "Selecione a cidade"
+                }
+              </option>
+              {estadoSelecionado && 
+                (cidadesPorEstado[estadoSelecionado] || []).map((cidade: string) => (
+                  <option key={cidade} value={cidade}>{cidade}</option>
+                ))
+              }
             </select>
           </div>
 

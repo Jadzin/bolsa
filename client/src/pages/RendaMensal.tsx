@@ -1,8 +1,10 @@
 import { ArrowLeft, Lock, MessageSquare } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
+import { useState } from 'react';
 
 export default function RendaMensal() {
   const [, navigate] = useLocation();
+  const [rendaMensal, setRendaMensal] = useState('');
   
   const handleBackClick = () => {
     navigate('/atualizacao-cadastral');
@@ -11,6 +13,31 @@ export default function RendaMensal() {
   const handleContinueClick = () => {
     // Navegar para a página de atualização de endereço
     navigate('/atualizacao-endereco');
+  };
+  
+  const formatarMoeda = (valor: string) => {
+    // Remove caracteres não numéricos
+    valor = valor.replace(/\D/g, '');
+    
+    // Converte para número e divide por 100 para obter valor em reais
+    const valorNumerico = parseInt(valor || '0', 10) / 100;
+    
+    // Formata usando a API Intl.NumberFormat
+    return valorNumerico.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+  };
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Pega o valor digitado pelo usuário
+    const inputValue = e.target.value;
+    
+    // Remove o R$ e formata
+    const valorLimpo = inputValue.replace(/[R$\s.]/g, '').replace(',', '');
+    
+    // Atualiza o estado com o valor formatado
+    setRendaMensal(formatarMoeda(valorLimpo));
   };
 
   return (
@@ -42,8 +69,10 @@ export default function RendaMensal() {
         <div className="mb-6">
           <input 
             type="text" 
-            className="w-full p-4 border border-gray-300 rounded-lg text-gray-500"
-            placeholder="Renda"
+            className="w-full p-4 border border-gray-300 rounded-lg text-gray-700 text-xl font-medium"
+            placeholder="R$ 0,00"
+            value={rendaMensal}
+            onChange={handleInputChange}
           />
         </div>
 

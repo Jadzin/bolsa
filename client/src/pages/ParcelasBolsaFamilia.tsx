@@ -30,24 +30,27 @@ export default function ParcelasBolsaFamilia() {
     const dataFormatada = hoje.toLocaleDateString('pt-BR');
 
     // Parcelas a serem liberadas (próximos 2 meses)
+    const mesAtualNumero = (mesAtualIndex + 1).toString().padStart(2, '0');
+    const mesProximoNumero = (mesAtualIndex + 2).toString().padStart(2, '0');
+    
     const parcelas = [
       {
         mes: `PROG BOLSA FAMILIA`,
-        programa: `MAIO DE ${anoAtual}`,
-        valor: 'R$ 1.298,00',
-        validade: dataFormatada,
-        status: 'bloqueado' as 'bloqueado',
-        iconeEhAlerta: true,
-        referencia: 'ATUAL'
-      },
-      {
-        mes: `PROG BOLSA FAMILIA`,
-        programa: `JUNHO DE ${anoAtual}`,
+        programa: ``,
         valor: 'R$ 1.298,00',
         validade: '',
         status: 'bloqueado' as 'bloqueado',
         iconeEhAlerta: true,
-        referencia: '06/2025'
+        referencia: `${mesAtualNumero}/${anoAtual}`
+      },
+      {
+        mes: `PROG BOLSA FAMILIA`,
+        programa: ``,
+        valor: 'R$ 1.298,00',
+        validade: '',
+        status: 'bloqueado' as 'bloqueado',
+        iconeEhAlerta: true,
+        referencia: `${mesProximoNumero}/${anoAtual}`
       }
     ];
 
@@ -57,7 +60,7 @@ export default function ParcelasBolsaFamilia() {
       const mesNumero = (i + 1).toString().padStart(2, '0');
       parcelas2.push({
         mes: `PROG BOLSA FAMILIA`,
-        programa: `${meses[i]} DE ${anoAtual}`,
+        programa: ``,
         valor: 'R$ 600,00',
         validade: '',
         status: 'bloqueado' as 'bloqueado',

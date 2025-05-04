@@ -131,6 +131,9 @@ export default function TarifaGoverno() {
           CONTINUAR E RECEBER
           <ArrowRight className="ml-2 h-5 w-5" />
         </motion.button>
+        
+        {/* Espaço para respiro */}
+        <div className="h-16"></div>
       </div>
     </div>
   );

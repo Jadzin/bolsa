@@ -20,6 +20,8 @@ export default function ParcelasBolsaFamilia() {
   const [parcelasALiberar, setParcelasALiberar] = useState<Parcela[]>([]);
   const [demaisParcelas, setDemaisParcelas] = useState<Parcela[]>([]);
   const [dataAtualizada, setDataAtualizada] = useState<string>('');
+  
+
 
   useEffect(() => {
     // Lógica para gerar as parcelas automaticamente, similar ao código HTML
@@ -113,8 +115,10 @@ export default function ParcelasBolsaFamilia() {
   };
 
   const handleUpdateClick = () => {
-    navigate('/atualizacao/edson/38176475572');
+    navigate('/atualizacao-cadastral');
   };
+
+
 
   // Renderiza uma parcela individual
   const renderParcela = (parcela: Parcela) => {

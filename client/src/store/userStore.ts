@@ -4,6 +4,7 @@ interface UserData {
   cpf: string;
   nome: string;
   nascimento: string;
+  renda?: string;
   endereco: {
     estado: string;
     cidade: string;

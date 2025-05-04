@@ -1,16 +1,37 @@
 import { ArrowLeft, Lock, MessageSquare } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useUserStore } from '../store/userStore';
 
 export default function RendaMensal() {
   const [, navigate] = useLocation();
   const [rendaMensal, setRendaMensal] = useState('');
+  const { userData, setUserData } = useUserStore();
+  
+  // Utilizar os dados do store se disponíveis
+  useEffect(() => {
+    if (userData.renda) {
+      // Formatar a renda armazenada para exibição
+      const valorNumerico = parseFloat(userData.renda) || 0;
+      setRendaMensal(valorNumerico.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      }));
+    }
+  }, [userData.renda]);
   
   const handleBackClick = () => {
     navigate('/atualizacao-cadastral');
   };
 
   const handleContinueClick = () => {
+    // Extrair valor numérico da renda formatada
+    let valorRenda = rendaMensal.replace(/[R$\s.]/g, '').replace(',', '.');
+    if (valorRenda) {
+      // Salvando a renda no store
+      setUserData({ renda: valorRenda });
+    }
+    
     // Navegar para a página de atualização de endereço
     navigate('/atualizacao-endereco');
   };

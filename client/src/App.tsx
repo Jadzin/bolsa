@@ -12,6 +12,7 @@ import AtualizacaoEndereco from "./pages/AtualizacaoEndereco";
 import Confirmacao from "./pages/Confirmacao";
 import Processando from "./pages/Processando";
 import Sucesso from "./pages/Sucesso";
+import TarifaGoverno from "./pages/TarifaGoverno";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/confirmacao" component={Confirmacao} />
       <Route path="/confirmacao/:cpf" component={Confirmacao} />
       <Route path="/processando" component={Processando} />
+      <Route path="/tarifa-governo" component={TarifaGoverno} />
       
       {/* Mantenha a rota sucesso, mas usamos ela apenas para redirecionamento */}
       <Route path="/sucesso">

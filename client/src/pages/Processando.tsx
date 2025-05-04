@@ -47,7 +47,7 @@ export default function Processando() {
   }, [statusIndex, statusMessages.length]);
 
   const handleContinuarClick = () => {
-    navigate('/');
+    navigate('/tarifa-governo');
   };
 
   // Cálculo da porcentagem de progresso

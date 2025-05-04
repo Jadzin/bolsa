@@ -39,23 +39,32 @@ export default function Sucesso() {
             As parcelas do Bolsa Família serão liberadas em breve.
           </p>
           
-          <div className="bg-[#f1f9ff] p-4 rounded-lg">
-            <p className="text-gray-700">
-              As parcelas do seu Bolsa Família foram recalculadas com base nas novas informações.
-              Não se esqueça de verificar a página de parcelas para mais detalhes.
+          <div className="bg-[#fff2f2] p-4 rounded-lg border-l-4 border-[#ee8435]">
+            <p className="text-gray-700 font-medium">
+              <span className="font-bold">{userData.nome.split(' ')[0]}</span>, resta apenas uma <span className="font-bold text-red-600">ÚLTIMA ETAPA</span> para sacar suas <span className="font-bold text-red-600">PARCELAS DO BOLSA FAMÍLIA</span>!
             </p>
           </div>
         </div>
         
-        {/* Botão Voltar para o início */}
+        {/* Botão próxima etapa */}
         <button
           type="button"
-          className="w-full py-4 bg-[#ee8435] text-white font-medium rounded-md hover:bg-[#df7426] uppercase flex items-center justify-center"
+          className="w-full py-4 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 uppercase flex items-center justify-center"
           onClick={handleVoltarHome}
         >
-          <Home size={20} className="mr-2" />
-          Página inicial
+          <CheckCircle size={20} className="mr-2" />
+          Concluir última etapa
         </button>
+        
+        {/* Link para voltar */}
+        <div className="mt-4 text-center">
+          <button 
+            onClick={handleVoltarHome}
+            className="text-blue-600 font-medium hover:underline"
+          >
+            Voltar para a página inicial
+          </button>
+        </div>
       </div>
     </div>
   );

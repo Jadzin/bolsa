@@ -27,7 +27,12 @@ function Router() {
       <Route path="/confirmacao" component={Confirmacao} />
       <Route path="/confirmacao/:cpf" component={Confirmacao} />
       <Route path="/processando" component={Processando} />
-      <Route path="/sucesso" component={Sucesso} />
+      
+      {/* Mantenha a rota sucesso, mas usamos ela apenas para redirecionamento */}
+      <Route path="/sucesso">
+        {() => <Home />}
+      </Route>
+      
       <Route component={NotFound} />
     </Switch>
   );

@@ -47,7 +47,7 @@ export default function Processando() {
   }, [statusIndex, statusMessages.length]);
 
   const handleContinuarClick = () => {
-    navigate('/sucesso');
+    navigate('/');
   };
 
   // Cálculo da porcentagem de progresso

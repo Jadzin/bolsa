@@ -10,6 +10,7 @@ import ParcelasBolsaFamilia from "./pages/ParcelasBolsaFamilia";
 import RendaMensal from "./pages/RendaMensal";
 import AtualizacaoEndereco from "./pages/AtualizacaoEndereco";
 import Confirmacao from "./pages/Confirmacao";
+import Processando from "./pages/Processando";
 import Sucesso from "./pages/Sucesso";
 
 function Router() {
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/atualizacao-endereco" component={AtualizacaoEndereco} />
       <Route path="/confirmacao" component={Confirmacao} />
       <Route path="/confirmacao/:cpf" component={Confirmacao} />
+      <Route path="/processando" component={Processando} />
       <Route path="/sucesso" component={Sucesso} />
       <Route component={NotFound} />
     </Switch>

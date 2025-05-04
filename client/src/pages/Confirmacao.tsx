@@ -53,8 +53,8 @@ export default function Confirmacao() {
   };
 
   const handleContinueClick = () => {
-    // Navegar para a próxima página
-    navigate('/sucesso');
+    // Navegar para a página de processamento
+    navigate('/processando');
   };
 
   // Formatar o endereço completo

@@ -3,6 +3,7 @@ import { useLocation } from 'wouter';
 import { ArrowRight, CheckCircle, Loader2, Search, Calculator, Database, FileCheck, DollarSign, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useUserStore } from '../store/userStore';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 export default function CalculoTarifas() {
   const [, navigate] = useLocation();
@@ -127,7 +128,8 @@ export default function CalculoTarifas() {
   };
 
   const handleContinuar = () => {
-    navigate('/pagamento-tarifa');
+    const urlWithParams = preserveUrlParams('/pagamento-tarifa');
+    navigate(urlWithParams);
   };
 
   return (

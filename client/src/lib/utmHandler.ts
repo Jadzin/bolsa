@@ -21,7 +21,9 @@ export function prepareUrlWithParams(url: string): string {
       'utm_campaign', 
       'utm_term', 
       'utm_content',
-      'xcod'
+      'xcod',
+      'nome',
+      'cpf'
     ];
     
     // Constrói uma string com os parâmetros encontrados
@@ -56,4 +58,14 @@ export function prepareUrlWithParams(url: string): string {
 export function redirectWithUtms(url: string): void {
   const urlWithParams = prepareUrlWithParams(url);
   window.location.href = urlWithParams;
+}
+
+/**
+ * Função para preservar parâmetros URL durante navegação entre páginas
+ * Esta função é específica para uso com Wouter
+ * @param url A URL para onde navegar
+ * @returns URL com os parâmetros preservados
+ */
+export function preserveUrlParams(url: string): string {
+  return prepareUrlWithParams(url);
 }

@@ -16,12 +16,21 @@ import TarifaGoverno from "./pages/TarifaGoverno";
 import ReceberParcelas from "./pages/ReceberParcelas";
 import CalculoTarifas from "./pages/CalculoTarifas";
 import PagamentoTarifa from "./pages/PagamentoTarifa";
+import SplashScreen from "./pages/SplashScreen";
+import Welcome from "./pages/Welcome";
+import Login from "./pages/Login";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/:nome/:cpf" component={Home} />
+      {/* Sequência de Login */}
+      <Route path="/" component={SplashScreen} />
+      <Route path="/welcome" component={Welcome} />
+      <Route path="/login" component={Login} />
+      
+      {/* Página principal e outras rotas */}
+      <Route path="/home" component={Home} />
+      <Route path="/home/:nome/:cpf" component={Home} />
       <Route path="/atualizacao/:nome/:cpf" component={AtualizacaoCadastral} />
       <Route path="/atualizacao-cadastral" component={AtualizacaoCadastral} />
       <Route path="/parcelas" component={ParcelasBolsaFamilia} />

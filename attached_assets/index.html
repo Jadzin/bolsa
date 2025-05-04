@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parcelas Bolsa Família</title>
+  <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet" />
+  <style>
+    body {
+  font-family: 'Rawline', sans-serif;
+  background: #fff;
+  margin: 0;
+  color: #003366;
+}
+    .topo-img {
+      width: 100%;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .parcela {
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+    .titulo-secao {
+      font-weight: bold;
+      color: #0b66a7;
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 12px;
+    }
+    .linha-parcela {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .icone {
+      width: 30px;
+      margin-top: 6px;
+    }
+    .detalhes {
+      flex: 1;
+    }
+    .mes {
+      font-weight: bold;
+      font-size: 20px;
+      color: #0b66a7;
+    }
+    .programa {
+      font-weight: bold;
+      font-size: 20px;
+      color: #0b66a7;
+    }
+    .valor {
+      float: right;
+      font-weight: bold;
+      font-size: 20px;
+      color: #0b66a7;
+    }
+    .validade {
+      font-size: 14px;
+      color: #444;
+      margin-top: 6px;
+    }
+    .atualizado {
+      text-align: center;
+      font-size: 13px;
+      color: #444;
+      margin-top: 40px;
+      font-family: 'Rawline', sans-serif;
+    }
+    .aviso {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 12px 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .aviso img {
+      width: 40px;
+      height: 40px;
+    }
+    .btn-atualizar {
+      display: block;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto 30px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+    }
+  
+    .conteudo {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    </style>
+</head>
+<body>
+  
+  <img src="topo-pagina.png" alt="Imagem Topo" class="topo-img" />
+<div class="conteudo">
+
+  <div class="aviso">
+    <img src="icone-alerta webp.webp" alt="Alerta" />
+    <span><strong>ATENÇÃO:</strong> PARA LIBERAR AS PARCELAS, VOCÊ PRECISA ATUALIZAR SEU CADASTRO!</span>
+  </div>
+
+  <button class="btn-atualizar" onclick="window.location.href='atualizar.html'">ATUALIZAR CADASTRO</button>
+
+  <div class="titulo-secao">PARCELAS A SEREM LIBERADAS</div>
+  <div id="parcelas-liberadas"></div>
+
+  <div class="titulo-secao">DEMAIS PARCELAS</div>
+  <div id="demais-parcelas"></div>
+
+  <div class="atualizado" id="atualizado"></div>
+
+  <script>
+    const meses = ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO", "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"];
+    const hoje = new Date();
+    const anoAtual = hoje.getFullYear();
+    const mesAtualIndex = hoje.getMonth();
+
+    const dataFormatada = hoje.toLocaleDateString('pt-BR');
+
+    const validadeFutura = new Date(hoje.getTime() + 32 * 24 * 60 * 60 * 1000);
+    const diaFinal = Math.floor(Math.random() * 6) + 20;
+    const validadeFinal = new Date(anoAtual, validadeFutura.getMonth() + 4, diaFinal).toLocaleDateString('pt-BR');
+
+    const parcelasLiberadas = [
+      {
+        mes: `${meses[mesAtualIndex]} DE ${anoAtual}`,
+        valor: 'R$ 1.298,00',
+        programa: 'PROG BOLSA FAMILIA',
+        validade: dataFormatada,
+        icone: 'icone-alerta webp.webp'
+      },
+      {
+        mes: `${meses[(mesAtualIndex + 1) % 12]} DE ${anoAtual}`,
+        valor: 'R$ 1.298,00',
+        programa: 'PROG BOLSA FAMILIA',
+        validade: `${validadeFutura.toLocaleDateString('pt-BR')} à ${validadeFinal}`,
+        icone: 'icone-alerta webp.webp'
+      }
+    ];
+
+    const demaisParcelas = [];
+    for (let i = mesAtualIndex + 2; i <= 11; i++) {
+      const diaInicio = Math.floor(Math.random() * 7) + 20;
+      const diaFim = Math.floor(Math.random() * 7) + 20;
+      const dataInicio = new Date(anoAtual, i, diaInicio);
+      const dataFim = new Date(anoAtual, i + 4, diaFim);
+      demaisParcelas.push({
+        mes: `${meses[i]} DE ${anoAtual}`,
+        valor: 'R$ 600,00',
+        programa: 'PROG BOLSA FAMILIA',
+        validade: `${dataInicio.toLocaleDateString('pt-BR')} à ${dataFim.toLocaleDateString('pt-BR')}`,
+        icone: 'icone-alerta webp.webp'
+      });
+    }
+
+    function criarParcela(parcela, tipo) {
+      let html = `
+        <div class="parcela">
+          <div class="linha-parcela">
+            <img class="icone" src="${parcela.icone}" alt="icone" />
+            <div class="detalhes">
+              <div class="mes">${parcela.mes}${parcela.valor ? `<span class="valor">${parcela.valor}</span>` : ''}</div>
+              ${parcela.programa ? `<div class="programa">${parcela.programa}</div>` : ''}
+              ${parcela.validade ? `<div class="validade">Validade: ${parcela.validade}</div>` : ''}
+            </div>
+          </div>
+        </div>`;
+      return html;
+    }
+
+    document.getElementById('parcelas-liberadas').innerHTML = parcelasLiberadas.map(p => criarParcela(p, 'liberada')).join('');
+    document.getElementById('demais-parcelas').innerHTML = demaisParcelas.map(p => criarParcela(p, 'demais')).join('');
+
+    const agora = new Date();
+    const formatado = agora.toLocaleDateString('pt-BR') + ' às ' + agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('atualizado').textContent = `Dados atualizados em: ${formatado}`;
+  </script>
+</div>
+</body>
+</html>

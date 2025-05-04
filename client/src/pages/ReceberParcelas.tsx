@@ -50,7 +50,7 @@ export default function ReceberParcelas() {
   const valorTotal = parcelas.reduce((total, parcela) => total + parcela.valor, 0);
   
   const handleReceber = () => {
-    navigate('/');
+    navigate('/calculo-tarifas');
   };
 
   return (

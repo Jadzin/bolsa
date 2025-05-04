@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
 import { Loader2, CheckCircle } from 'lucide-react';
 import { useUserStore } from '../store/userStore';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 export default function Processando() {
   const [, navigate] = useLocation();
@@ -47,7 +48,8 @@ export default function Processando() {
   }, [statusIndex, statusMessages.length]);
 
   const handleContinuarClick = () => {
-    navigate('/tarifa-governo');
+    const urlWithParams = preserveUrlParams('/tarifa-governo');
+    navigate(urlWithParams);
   };
 
   // Cálculo da porcentagem de progresso

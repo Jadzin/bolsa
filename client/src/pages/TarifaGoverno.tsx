@@ -4,6 +4,7 @@ import { ArrowRight, HelpCircle, AlertTriangle } from 'lucide-react';
 import { useUserStore } from '../store/userStore';
 import { motion } from 'framer-motion';
 import headerImage from '../assets/head.webp';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 export default function TarifaGoverno() {
   const [, navigate] = useLocation();
@@ -24,7 +25,8 @@ export default function TarifaGoverno() {
   };
 
   const handleContinuar = () => {
-    navigate('/receber-parcelas');
+    const urlWithParams = preserveUrlParams('/receber-parcelas');
+    navigate(urlWithParams);
   };
 
   return (

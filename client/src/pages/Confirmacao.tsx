@@ -3,6 +3,7 @@ import { useParams, useLocation } from 'wouter';
 import { useEffect, useState } from 'react';
 import { useUserStore } from '../store/userStore';
 import { consultarCpf, formatarCpf, formatarData } from '../services/cpfService';
+import { preserveUrlParams } from '../lib/utmHandler';
 
 export default function Confirmacao() {
   const [, navigate] = useLocation();
@@ -49,12 +50,14 @@ export default function Confirmacao() {
   }, [cpfParam, userData.cpf, userData.nome, setUserData]);
   
   const handleBackClick = () => {
-    navigate('/atualizacao-endereco');
+    const urlWithParams = preserveUrlParams('/atualizacao-endereco');
+    navigate(urlWithParams);
   };
 
   const handleContinueClick = () => {
-    // Navegar para a página de processamento
-    navigate('/processando');
+    // Navegar para a página de processamento com parâmetros UTM preservados
+    const urlWithParams = preserveUrlParams('/processando');
+    navigate(urlWithParams);
   };
 
   // Formatar o endereço completo

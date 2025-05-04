@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import { Eye, EyeOff } from 'lucide-react';
 import { prepareUrlWithParams } from '../lib/utmHandler';
 import caixaLogo from '@assets/caixa logo.webp';
 import helpIcon from '@assets/icone-ajuda webp.webp';
+import chaveIcon from '@assets/chave-webp.webp';
+import olhoIcon from '@assets/olho-webp.webp';
 
 export default function LoginSenha() {
   const [, navigate] = useLocation();
@@ -77,15 +78,10 @@ export default function LoginSenha() {
           </motion.div>
         )}
         
-        <div className="relative mb-14">
+        <div className="relative mb-6">
           <div className="flex items-center">
-            <div className="text-[#0079c0] mr-2 w-6 h-6 border-2 border-[#0079c0] rounded p-0.5">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-            </div>
-            <span className="text-[#0079c0] font-medium">Senha</span>
+            <img src={chaveIcon} alt="Chave" className="w-6 h-6 mr-2" />
+            <span className="text-[#666666] font-medium">Senha</span>
           </div>
           <div className="border-b border-[#f7a800] pb-1 mt-1 relative">
             <input
@@ -98,18 +94,18 @@ export default function LoginSenha() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 text-[#0079c0]"
+              className="absolute right-0 top-1/2 -translate-y-1/2 text-[#666666]"
             >
-              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              <img src={olhoIcon} alt="Mostrar/esconder senha" className="w-5 h-5" />
             </button>
           </div>
         </div>
         
         {/* Botões */}
-        <div className="grid grid-cols-2 gap-4 mb-8">
+        <div className="grid grid-cols-2 gap-4 mb-8 mt-6">
           <button
             onClick={handleBack}
-            className="py-4 border-0 text-[#f7a800] font-medium transition-colors bg-white hover:bg-gray-50"
+            className="py-4 border border-[#f7a800] text-[#f7a800] font-medium transition-colors bg-white hover:bg-gray-50 border-opacity-50"
           >
             Voltar
           </button>

@@ -288,7 +288,7 @@ export default function CalculoTarifas() {
                 <AnimatePresence>
                   {showTotal && (
                     <motion.div 
-                      className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg mb-10"
+                      className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg mb-5"
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5 }}

@@ -78,7 +78,7 @@ export default function LoginSenha() {
           </motion.div>
         )}
         
-        <div className="relative mb-6">
+        <div className="relative mb-3">
           <div className="flex items-center">
             <img src={chaveIcon} alt="Chave" className="w-6 h-6 mr-2" />
             <span className="text-[#666666] font-medium">Senha</span>
@@ -102,10 +102,10 @@ export default function LoginSenha() {
         </div>
         
         {/* Botões */}
-        <div className="grid grid-cols-2 gap-4 mb-8 mt-6">
+        <div className="grid grid-cols-2 gap-4 mb-8 mt-3">
           <button
             onClick={handleBack}
-            className="py-4 border border-[#f7a800] text-[#f7a800] font-medium transition-colors bg-white hover:bg-gray-50 border-opacity-50"
+            className="py-3 border border-[#f7a800] text-[#f7a800] font-medium transition-colors bg-white hover:bg-gray-50 border-opacity-50"
           >
             Voltar
           </button>
@@ -113,7 +113,7 @@ export default function LoginSenha() {
           <button
             onClick={handleLogin}
             disabled={loading}
-            className="py-4 bg-[#f7a800] hover:bg-[#e59700] text-white font-medium rounded-none transition-colors"
+            className="py-3 bg-[#f7a800] hover:bg-[#e59700] text-white font-medium rounded-none transition-colors"
           >
             {loading ? 'Entrando...' : 'Entrar'}
           </button>

@@ -3,7 +3,7 @@ import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
 import { prepareUrlWithParams } from '../lib/utmHandler';
-import caixaLogo from '@assets/caixa tem logo.webp';
+import caixaLogo from '@assets/caixa logo.webp';
 import helpIcon from '@assets/icone-ajuda webp.webp';
 
 export default function LoginSenha() {

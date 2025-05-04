@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { prepareUrlWithParams } from '../lib/utmHandler';
-import caixaLogo from '@assets/caixa tem logo.webp';
+import caixaLogo from '@assets/caixa logo.webp';
 import userIcon from '@assets/icone-user webp.webp';
 import helpIcon from '@assets/icone-ajuda webp.webp';
 

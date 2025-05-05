@@ -1,0 +1,9 @@
+# Configuração para GitHub Pages
+# Este arquivo ajuda o GitHub Pages a tratar este projeto como um SPA (Single Page Application)
+
+# Informar ao GitHub Pages para não processar com Jekyll
+include:
+  - .nojekyll
+
+# Configurar SPA para todas as rotas não encontradas redirecionarem para a página principal
+404: 404.html

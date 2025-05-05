@@ -20,8 +20,28 @@ import SplashScreen from "./pages/SplashScreen";
 import Welcome from "./pages/Welcome";
 import Login from "./pages/Login";
 import LoginSenha from "./pages/LoginSenha";
+import { useEffect } from "react";
+import { basePath } from "./lib/env";
 
 function Router() {
+  // Efeito para ajustar a base path quando estiver no GitHub Pages
+  useEffect(() => {
+    // Adiciona um ouvinte para o evento popstate para lidar com navegação do navegador
+    const handlePopState = () => {
+      const path = window.location.pathname;
+      if (path.includes(basePath) && basePath !== '') {
+        // Ajuste para routes do wouter
+        const newPath = path.replace(basePath, '');
+        if (newPath === '') {
+          window.history.replaceState(null, '', basePath + '/');
+        }
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   return (
     <Switch>
       {/* Sequência de Login */}

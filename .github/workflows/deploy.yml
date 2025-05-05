@@ -6,31 +6,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+    permissions: 
+      contents: write
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-          
-      - name: Install and Build 🔧
-        run: |
-          npm ci
-          npm run build
-          
-      - name: Copy HTML version and assets 📂
-        run: |
-          mkdir -p dist/public/html-version
-          cp -r html-version/* dist/public/html-version/
-          cp -r attached_assets dist/public/
-          touch dist/public/.nojekyll
-          
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/public
+          folder: html-version
           branch: gh-pages

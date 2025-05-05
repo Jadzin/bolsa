@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions: 
       contents: write
@@ -14,8 +14,28 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Deploy 🚀
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build React app
+        run: npm run build
+        
+      - name: Create .nojekyll file
+        run: touch dist/public/.nojekyll
+        
+      - name: Copy assets
+        run: |
+          mkdir -p dist/public/attached_assets
+          cp -r attached_assets/* dist/public/attached_assets/
+          
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: html-version
+          folder: dist/public
           branch: gh-pages
